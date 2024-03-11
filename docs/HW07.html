@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="John Ju">
+
+<title>HW07</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="HW07_files/libs/clipboard/clipboard.min.js"></script>
+<script src="HW07_files/libs/quarto-html/quarto.js"></script>
+<script src="HW07_files/libs/quarto-html/popper.min.js"></script>
+<script src="HW07_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="HW07_files/libs/quarto-html/anchor.min.js"></script>
+<link href="HW07_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="HW07_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="HW07_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="HW07_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="HW07_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">HW07</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>John Ju </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="section" class="level1">
+<h1>2</h1>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://calvin-data304.netlify.app/data/wvs.csv"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of respondents in each country and reset the index for plotting</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>country_counts <span class="op">=</span> df[<span class="st">'country'</span>].value_counts().reset_index()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>country_counts.columns <span class="op">=</span> [<span class="st">'country'</span>, <span class="st">'Number of Respondents'</span>]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort countries by the number of respondents in descending order</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>sorted_countries <span class="op">=</span> country_counts.sort_values(by<span class="op">=</span><span class="st">'Number of Respondents'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a bar chart visualizing the number of respondents per country</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(sorted_countries).mark_bar().encode(</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'country:N'</span>, title<span class="op">=</span><span class="st">'Country'</span>, sort<span class="op">=</span><span class="st">'-y'</span>),  <span class="co"># Sort bars based on the number of respondents</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">'Number of Respondents:Q'</span>, title<span class="op">=</span><span class="st">'Number of Respondents'</span>),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>alt.value(<span class="st">'steelblue'</span>)  <span class="co"># Apply a consistent color; consider a gradient for more nuanced visualizations</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">1000</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">'Number of Respondents in Each Country'</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Configure the appearance of the chart for clarity and readability</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>chart.configure_axis(</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    labelFontSize<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    titleFontSize<span class="op">=</span><span class="dv">15</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>).configure_title(</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    fontSize<span class="op">=</span><span class="dv">15</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>).configure_legend(</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    titleFontSize<span class="op">=</span><span class="dv">13</span>,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    labelFontSize<span class="op">=</span><span class="dv">13</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+
+<style>
+  #altair-viz-87b1068e9c9a4600a30cb7b3f08c9ad2.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-87b1068e9c9a4600a30cb7b3f08c9ad2.vega-embed details,
+  #altair-viz-87b1068e9c9a4600a30cb7b3f08c9ad2.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-87b1068e9c9a4600a30cb7b3f08c9ad2"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-87b1068e9c9a4600a30cb7b3f08c9ad2") {
+      outputDiv = document.getElementById("altair-viz-87b1068e9c9a4600a30cb7b3f08c9ad2");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-dbd7ea1abe545a4f1c032b8370b30ec4"}, "mark": {"type": "bar"}, "encoding": {"color": {"value": "steelblue"}, "x": {"field": "country", "sort": "-y", "title": "Country", "type": "nominal"}, "y": {"field": "Number of Respondents", "title": "Number of Respondents", "type": "quantitative"}}, "height": 500, "title": "Number of Respondents in Each Country", "width": 1000, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-dbd7ea1abe545a4f1c032b8370b30ec4": [{"country": "CAN", "Number of Respondents": 4018}, {"country": "USA", "Number of Respondents": 2552}, {"country": "GBR", "Number of Respondents": 2399}, {"country": "NLD", "Number of Respondents": 1891}, {"country": "AUS", "Number of Respondents": 1773}, {"country": "MEX", "Number of Respondents": 1729}, {"country": "DEU", "Number of Respondents": 1520}, {"country": "KOR", "Number of Respondents": 1245}, {"country": "SWE", "Number of Respondents": 1194}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+<p>There are significant differences between countries.</p>
+</section>
+<section id="section-1" class="level1">
+<h1>3</h1>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a summary DataFrame for age3 groupings by country</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>age3_counts <span class="op">=</span> df.groupby([<span class="st">'country'</span>, <span class="st">'age3'</span>]).size().reset_index(name<span class="op">=</span><span class="st">'counts'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a summary DataFrame for age6 groupings by country</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>age6_counts <span class="op">=</span> df.groupby([<span class="st">'country'</span>, <span class="st">'age6'</span>]).size().reset_index(name<span class="op">=</span><span class="st">'counts'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Chart for age3 groupings</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>chart1 <span class="op">=</span> alt.Chart(age3_counts).mark_bar().encode(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'country:N'</span>, title<span class="op">=</span><span class="st">'Country'</span>),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">'counts:Q'</span>, title<span class="op">=</span><span class="st">'Number of Respondents'</span>),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'age3:N'</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">'country'</span>, <span class="st">'age3'</span>, <span class="st">'counts'</span>]</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Distribution of Age3 Groupings Across Countries"</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Chart for age6 groupings</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>chart2 <span class="op">=</span> alt.Chart(age6_counts).mark_bar().encode(</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'country:N'</span>, title<span class="op">=</span><span class="st">'Country'</span>),</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">'counts:Q'</span>, title<span class="op">=</span><span class="st">'Number of Respondents'</span>),</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'age6:N'</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">'country'</span>, <span class="st">'age6'</span>, <span class="st">'counts'</span>]</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Distribution of Age6 Groupings Across Countries"</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the charts</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>chart1 <span class="op">|</span> chart2  <span class="co"># Display charts side by side for comparison</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+
+<style>
+  #altair-viz-36a717a72ea44160a3eb5b67aab423a7.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-36a717a72ea44160a3eb5b67aab423a7.vega-embed details,
+  #altair-viz-36a717a72ea44160a3eb5b67aab423a7.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-36a717a72ea44160a3eb5b67aab423a7"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-36a717a72ea44160a3eb5b67aab423a7") {
+      outputDiv = document.getElementById("altair-viz-36a717a72ea44160a3eb5b67aab423a7");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"data": {"name": "data-bda693358fb6ef41d0aa3070bf50b9d2"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "age3", "type": "nominal"}, "tooltip": [{"field": "country", "type": "nominal"}, {"field": "age3", "type": "quantitative"}, {"field": "counts", "type": "quantitative"}], "x": {"field": "country", "title": "Country", "type": "nominal"}, "y": {"field": "counts", "title": "Number of Respondents", "type": "quantitative"}}, "title": "Distribution of Age3 Groupings Across Countries"}, {"data": {"name": "data-838de292608c0564977e1491d7c8525a"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "age6", "type": "nominal"}, "tooltip": [{"field": "country", "type": "nominal"}, {"field": "age6", "type": "quantitative"}, {"field": "counts", "type": "quantitative"}], "x": {"field": "country", "title": "Country", "type": "nominal"}, "y": {"field": "counts", "title": "Number of Respondents", "type": "quantitative"}}, "title": "Distribution of Age6 Groupings Across Countries"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-bda693358fb6ef41d0aa3070bf50b9d2": [{"country": "AUS", "age3": 1, "counts": 175}, {"country": "AUS", "age3": 2, "counts": 505}, {"country": "AUS", "age3": 3, "counts": 1093}, {"country": "CAN", "age3": 1, "counts": 780}, {"country": "CAN", "age3": 2, "counts": 1495}, {"country": "CAN", "age3": 3, "counts": 1743}, {"country": "DEU", "age3": 1, "counts": 247}, {"country": "DEU", "age3": 2, "counts": 467}, {"country": "DEU", "age3": 3, "counts": 806}, {"country": "GBR", "age3": 1, "counts": 305}, {"country": "GBR", "age3": 2, "counts": 784}, {"country": "GBR", "age3": 3, "counts": 1310}, {"country": "KOR", "age3": 1, "counts": 248}, {"country": "KOR", "age3": 2, "counts": 467}, {"country": "KOR", "age3": 3, "counts": 530}, {"country": "MEX", "age3": 1, "counts": 442}, {"country": "MEX", "age3": 2, "counts": 671}, {"country": "MEX", "age3": 3, "counts": 616}, {"country": "NLD", "age3": 1, "counts": 156}, {"country": "NLD", "age3": 2, "counts": 544}, {"country": "NLD", "age3": 3, "counts": 1191}, {"country": "SWE", "age3": 1, "counts": 296}, {"country": "SWE", "age3": 2, "counts": 339}, {"country": "SWE", "age3": 3, "counts": 559}, {"country": "USA", "age3": 1, "counts": 616}, {"country": "USA", "age3": 2, "counts": 1057}, {"country": "USA", "age3": 3, "counts": 879}], "data-838de292608c0564977e1491d7c8525a": [{"country": "AUS", "age6": 1, "counts": 76}, {"country": "AUS", "age6": 2, "counts": 222}, {"country": "AUS", "age6": 3, "counts": 247}, {"country": "AUS", "age6": 4, "counts": 272}, {"country": "AUS", "age6": 5, "counts": 390}, {"country": "AUS", "age6": 6, "counts": 566}, {"country": "CAN", "age6": 1, "counts": 418}, {"country": "CAN", "age6": 2, "counts": 744}, {"country": "CAN", "age6": 3, "counts": 782}, {"country": "CAN", "age6": 4, "counts": 709}, {"country": "CAN", "age6": 5, "counts": 604}, {"country": "CAN", "age6": 6, "counts": 761}, {"country": "DEU", "age6": 1, "counts": 129}, {"country": "DEU", "age6": 2, "counts": 220}, {"country": "DEU", "age6": 3, "counts": 203}, {"country": "DEU", "age6": 4, "counts": 326}, {"country": "DEU", "age6": 5, "counts": 247}, {"country": "DEU", "age6": 6, "counts": 395}, {"country": "GBR", "age6": 1, "counts": 162}, {"country": "GBR", "age6": 2, "counts": 372}, {"country": "GBR", "age6": 3, "counts": 383}, {"country": "GBR", "age6": 4, "counts": 368}, {"country": "GBR", "age6": 5, "counts": 410}, {"country": "GBR", "age6": 6, "counts": 704}, {"country": "KOR", "age6": 1, "counts": 120}, {"country": "KOR", "age6": 2, "counts": 209}, {"country": "KOR", "age6": 3, "counts": 231}, {"country": "KOR", "age6": 4, "counts": 277}, {"country": "KOR", "age6": 5, "counts": 301}, {"country": "KOR", "age6": 6, "counts": 107}, {"country": "MEX", "age6": 1, "counts": 253}, {"country": "MEX", "age6": 2, "counts": 385}, {"country": "MEX", "age6": 3, "counts": 315}, {"country": "MEX", "age6": 4, "counts": 304}, {"country": "MEX", "age6": 5, "counts": 232}, {"country": "MEX", "age6": 6, "counts": 240}, {"country": "NLD", "age6": 1, "counts": 69}, {"country": "NLD", "age6": 2, "counts": 208}, {"country": "NLD", "age6": 3, "counts": 269}, {"country": "NLD", "age6": 4, "counts": 342}, {"country": "NLD", "age6": 5, "counts": 456}, {"country": "NLD", "age6": 6, "counts": 547}, {"country": "SWE", "age6": 1, "counts": 215}, {"country": "SWE", "age6": 2, "counts": 149}, {"country": "SWE", "age6": 3, "counts": 172}, {"country": "SWE", "age6": 4, "counts": 177}, {"country": "SWE", "age6": 5, "counts": 180}, {"country": "SWE", "age6": 6, "counts": 301}, {"country": "USA", "age6": 1, "counts": 274}, {"country": "USA", "age6": 2, "counts": 694}, {"country": "USA", "age6": 3, "counts": 447}, {"country": "USA", "age6": 4, "counts": 428}, {"country": "USA", "age6": 5, "counts": 373}, {"country": "USA", "age6": 6, "counts": 336}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</section>
+<section id="section-2" class="level1">
+<h1>4</h1>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>age6_counts <span class="op">=</span> df.groupby([<span class="st">'country'</span>, <span class="st">'age6'</span>]).size().reset_index(name<span class="op">=</span><span class="st">'counts'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(age6_counts).mark_line(point<span class="op">=</span><span class="va">True</span>).encode(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'age6:N'</span>, title<span class="op">=</span><span class="st">'Age Group'</span>),  </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">'counts:Q'</span>, title<span class="op">=</span><span class="st">'Number of Respondents'</span>),  </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'country:N'</span>,  </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">'country'</span>, <span class="st">'age6'</span>, <span class="st">'counts'</span>]  </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Respondent Distribution Across Age Groups by Country"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>).facet(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    facet<span class="op">=</span>alt.Facet(<span class="st">'country:N'</span>, title<span class="op">=</span><span class="st">'Country'</span>),  </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="dv">3</span>  </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>).resolve_scale(</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'independent'</span>,  </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'independent'</span>  </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+
+<style>
+  #altair-viz-6be297eb0b3c4601b81f3e3fbceff42e.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-6be297eb0b3c4601b81f3e3fbceff42e.vega-embed details,
+  #altair-viz-6be297eb0b3c4601b81f3e3fbceff42e.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-6be297eb0b3c4601b81f3e3fbceff42e"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-6be297eb0b3c4601b81f3e3fbceff42e") {
+      outputDiv = document.getElementById("altair-viz-6be297eb0b3c4601b81f3e3fbceff42e");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-838de292608c0564977e1491d7c8525a"}, "facet": {"field": "country", "title": "Country", "type": "nominal"}, "spec": {"mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "country", "type": "nominal"}, "tooltip": [{"field": "country", "type": "nominal"}, {"field": "age6", "type": "quantitative"}, {"field": "counts", "type": "quantitative"}], "x": {"field": "age6", "title": "Age Group", "type": "nominal"}, "y": {"field": "counts", "title": "Number of Respondents", "type": "quantitative"}}, "title": "Respondent Distribution Across Age Groups by Country"}, "columns": 3, "resolve": {"scale": {"x": "independent", "y": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-838de292608c0564977e1491d7c8525a": [{"country": "AUS", "age6": 1, "counts": 76}, {"country": "AUS", "age6": 2, "counts": 222}, {"country": "AUS", "age6": 3, "counts": 247}, {"country": "AUS", "age6": 4, "counts": 272}, {"country": "AUS", "age6": 5, "counts": 390}, {"country": "AUS", "age6": 6, "counts": 566}, {"country": "CAN", "age6": 1, "counts": 418}, {"country": "CAN", "age6": 2, "counts": 744}, {"country": "CAN", "age6": 3, "counts": 782}, {"country": "CAN", "age6": 4, "counts": 709}, {"country": "CAN", "age6": 5, "counts": 604}, {"country": "CAN", "age6": 6, "counts": 761}, {"country": "DEU", "age6": 1, "counts": 129}, {"country": "DEU", "age6": 2, "counts": 220}, {"country": "DEU", "age6": 3, "counts": 203}, {"country": "DEU", "age6": 4, "counts": 326}, {"country": "DEU", "age6": 5, "counts": 247}, {"country": "DEU", "age6": 6, "counts": 395}, {"country": "GBR", "age6": 1, "counts": 162}, {"country": "GBR", "age6": 2, "counts": 372}, {"country": "GBR", "age6": 3, "counts": 383}, {"country": "GBR", "age6": 4, "counts": 368}, {"country": "GBR", "age6": 5, "counts": 410}, {"country": "GBR", "age6": 6, "counts": 704}, {"country": "KOR", "age6": 1, "counts": 120}, {"country": "KOR", "age6": 2, "counts": 209}, {"country": "KOR", "age6": 3, "counts": 231}, {"country": "KOR", "age6": 4, "counts": 277}, {"country": "KOR", "age6": 5, "counts": 301}, {"country": "KOR", "age6": 6, "counts": 107}, {"country": "MEX", "age6": 1, "counts": 253}, {"country": "MEX", "age6": 2, "counts": 385}, {"country": "MEX", "age6": 3, "counts": 315}, {"country": "MEX", "age6": 4, "counts": 304}, {"country": "MEX", "age6": 5, "counts": 232}, {"country": "MEX", "age6": 6, "counts": 240}, {"country": "NLD", "age6": 1, "counts": 69}, {"country": "NLD", "age6": 2, "counts": 208}, {"country": "NLD", "age6": 3, "counts": 269}, {"country": "NLD", "age6": 4, "counts": 342}, {"country": "NLD", "age6": 5, "counts": 456}, {"country": "NLD", "age6": 6, "counts": 547}, {"country": "SWE", "age6": 1, "counts": 215}, {"country": "SWE", "age6": 2, "counts": 149}, {"country": "SWE", "age6": 3, "counts": 172}, {"country": "SWE", "age6": 4, "counts": 177}, {"country": "SWE", "age6": 5, "counts": 180}, {"country": "SWE", "age6": 6, "counts": 301}, {"country": "USA", "age6": 1, "counts": 274}, {"country": "USA", "age6": 2, "counts": 694}, {"country": "USA", "age6": 3, "counts": 447}, {"country": "USA", "age6": 4, "counts": 428}, {"country": "USA", "age6": 5, "counts": 373}, {"country": "USA", "age6": 6, "counts": 336}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</section>
+<section id="section-3" class="level1">
+<h1>5</h1>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>avg_democracy_importance <span class="op">=</span> df.groupby([<span class="st">'country'</span>, <span class="st">'age6'</span>])[<span class="st">'democracy_importance'</span>].mean().reset_index()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(avg_democracy_importance).mark_line(point<span class="op">=</span><span class="va">True</span>).encode(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'age6:N'</span>, title<span class="op">=</span><span class="st">'Age Group'</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">'democracy_importance:Q'</span>, title<span class="op">=</span><span class="st">'Average Democracy Importance'</span>),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>alt.Color(<span class="st">'country:N'</span>, legend<span class="op">=</span><span class="va">None</span>),  </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">'country'</span>, <span class="st">'age6'</span>, <span class="st">'democracy_importance'</span>]</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">200</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">200</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>).facet(</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    facet<span class="op">=</span>alt.Facet(<span class="st">'country:N'</span>, title<span class="op">=</span><span class="st">'Country'</span>),</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="dv">3</span>  </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>).resolve_scale(</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'independent'</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'independent'</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<style>
+  #altair-viz-ec8b92928008435c9d483751f6ae44e1.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-ec8b92928008435c9d483751f6ae44e1.vega-embed details,
+  #altair-viz-ec8b92928008435c9d483751f6ae44e1.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-ec8b92928008435c9d483751f6ae44e1"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-ec8b92928008435c9d483751f6ae44e1") {
+      outputDiv = document.getElementById("altair-viz-ec8b92928008435c9d483751f6ae44e1");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-01fd26d8a1e7aebcd85e5a7a37e095fc"}, "facet": {"field": "country", "title": "Country", "type": "nominal"}, "spec": {"mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "country", "legend": null, "type": "nominal"}, "tooltip": [{"field": "country", "type": "nominal"}, {"field": "age6", "type": "quantitative"}, {"field": "democracy_importance", "type": "quantitative"}], "x": {"field": "age6", "title": "Age Group", "type": "nominal"}, "y": {"field": "democracy_importance", "title": "Average Democracy Importance", "type": "quantitative"}}, "height": 200, "width": 200}, "columns": 3, "resolve": {"scale": {"x": "independent", "y": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-01fd26d8a1e7aebcd85e5a7a37e095fc": [{"country": "AUS", "age6": 1, "democracy_importance": 7.881578947368421}, {"country": "AUS", "age6": 2, "democracy_importance": 8.094594594594595}, {"country": "AUS", "age6": 3, "democracy_importance": 8.834008097165992}, {"country": "AUS", "age6": 4, "democracy_importance": 9.0625}, {"country": "AUS", "age6": 5, "democracy_importance": 9.351282051282052}, {"country": "AUS", "age6": 6, "democracy_importance": 9.482332155477032}, {"country": "CAN", "age6": 1, "democracy_importance": 7.930622009569378}, {"country": "CAN", "age6": 2, "democracy_importance": 8.365591397849462}, {"country": "CAN", "age6": 3, "democracy_importance": 8.442455242966751}, {"country": "CAN", "age6": 4, "democracy_importance": 8.67700987306065}, {"country": "CAN", "age6": 5, "democracy_importance": 9.125827814569536}, {"country": "CAN", "age6": 6, "democracy_importance": 9.513797634691196}, {"country": "DEU", "age6": 1, "democracy_importance": 9.155038759689923}, {"country": "DEU", "age6": 2, "democracy_importance": 9.168181818181818}, {"country": "DEU", "age6": 3, "democracy_importance": 9.25615763546798}, {"country": "DEU", "age6": 4, "democracy_importance": 9.549079754601227}, {"country": "DEU", "age6": 5, "democracy_importance": 9.582995951417004}, {"country": "DEU", "age6": 6, "democracy_importance": 9.69367088607595}, {"country": "GBR", "age6": 1, "democracy_importance": 8.08641975308642}, {"country": "GBR", "age6": 2, "democracy_importance": 8.317204301075268}, {"country": "GBR", "age6": 3, "democracy_importance": 8.825065274151436}, {"country": "GBR", "age6": 4, "democracy_importance": 8.92663043478261}, {"country": "GBR", "age6": 5, "democracy_importance": 9.290243902439025}, {"country": "GBR", "age6": 6, "democracy_importance": 9.274147727272727}, {"country": "KOR", "age6": 1, "democracy_importance": 8.0}, {"country": "KOR", "age6": 2, "democracy_importance": 7.880382775119617}, {"country": "KOR", "age6": 3, "democracy_importance": 8.056277056277056}, {"country": "KOR", "age6": 4, "democracy_importance": 7.9675090252707585}, {"country": "KOR", "age6": 5, "democracy_importance": 7.843853820598007}, {"country": "KOR", "age6": 6, "democracy_importance": 7.4766355140186915}, {"country": "MEX", "age6": 1, "democracy_importance": 8.205533596837945}, {"country": "MEX", "age6": 2, "democracy_importance": 8.192207792207792}, {"country": "MEX", "age6": 3, "democracy_importance": 8.431746031746032}, {"country": "MEX", "age6": 4, "democracy_importance": 8.1875}, {"country": "MEX", "age6": 5, "democracy_importance": 8.452586206896552}, {"country": "MEX", "age6": 6, "democracy_importance": 8.429166666666667}, {"country": "NLD", "age6": 1, "democracy_importance": 8.028985507246377}, {"country": "NLD", "age6": 2, "democracy_importance": 8.461538461538462}, {"country": "NLD", "age6": 3, "democracy_importance": 8.297397769516728}, {"country": "NLD", "age6": 4, "democracy_importance": 8.675438596491228}, {"country": "NLD", "age6": 5, "democracy_importance": 9.026315789473685}, {"country": "NLD", "age6": 6, "democracy_importance": 9.213893967093236}, {"country": "SWE", "age6": 1, "democracy_importance": 8.386046511627907}, {"country": "SWE", "age6": 2, "democracy_importance": 9.06711409395973}, {"country": "SWE", "age6": 3, "democracy_importance": 9.372093023255815}, {"country": "SWE", "age6": 4, "democracy_importance": 9.548022598870057}, {"country": "SWE", "age6": 5, "democracy_importance": 9.738888888888889}, {"country": "SWE", "age6": 6, "democracy_importance": 9.651162790697674}, {"country": "USA", "age6": 1, "democracy_importance": 7.507299270072993}, {"country": "USA", "age6": 2, "democracy_importance": 7.752161383285302}, {"country": "USA", "age6": 3, "democracy_importance": 8.172259507829978}, {"country": "USA", "age6": 4, "democracy_importance": 8.63551401869159}, {"country": "USA", "age6": 5, "democracy_importance": 8.924932975871315}, {"country": "USA", "age6": 6, "democracy_importance": 9.306547619047619}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</section>
+<section id="section-4" class="level1">
+<h1>6</h1>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>avg_democracy_importance <span class="op">=</span> df.groupby([<span class="st">'country'</span>, <span class="st">'age'</span>])[<span class="st">'democracy_importance'</span>].mean().reset_index()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(avg_democracy_importance).mark_line(point<span class="op">=</span><span class="va">True</span>).encode(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'age:N'</span>, title<span class="op">=</span><span class="st">'Age Group'</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">'democracy_importance:Q'</span>, title<span class="op">=</span><span class="st">'Average Democracy Importance'</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>alt.Color(<span class="st">'country:N'</span>, legend<span class="op">=</span><span class="va">None</span>),  </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">'country'</span>, <span class="st">'age'</span>, <span class="st">'democracy_importance'</span>]</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">200</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">200</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>).facet(</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    facet<span class="op">=</span>alt.Facet(<span class="st">'country:N'</span>, title<span class="op">=</span><span class="st">'Country'</span>),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="dv">3</span>  </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>).resolve_scale(</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'independent'</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'independent'</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+
+<style>
+  #altair-viz-fe7d11d2454c4ab489bf4d3982fbce52.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-fe7d11d2454c4ab489bf4d3982fbce52.vega-embed details,
+  #altair-viz-fe7d11d2454c4ab489bf4d3982fbce52.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-fe7d11d2454c4ab489bf4d3982fbce52"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-fe7d11d2454c4ab489bf4d3982fbce52") {
+      outputDiv = document.getElementById("altair-viz-fe7d11d2454c4ab489bf4d3982fbce52");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-7bc35e092c6ea27d253dba72f666de6c"}, "facet": {"field": "country", "title": "Country", "type": "nominal"}, "spec": {"mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "country", "legend": null, "type": "nominal"}, "tooltip": [{"field": "country", "type": "nominal"}, {"field": "age", "type": "quantitative"}, {"field": "democracy_importance", "type": "quantitative"}], "x": {"field": "age", "title": "Age Group", "type": "nominal"}, "y": {"field": "democracy_importance", "title": "Average Democracy Importance", "type": "quantitative"}}, "height": 200, "width": 200}, "columns": 3, "resolve": {"scale": {"x": "independent", "y": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-7bc35e092c6ea27d253dba72f666de6c": [{"country": "AUS", "age": 17, "democracy_importance": 8.0}, {"country": "AUS", "age": 18, "democracy_importance": 7.416666666666667}, {"country": "AUS", "age": 19, "democracy_importance": 7.0}, {"country": "AUS", "age": 20, "democracy_importance": 8.0}, {"country": "AUS", "age": 21, "democracy_importance": 8.875}, {"country": "AUS", "age": 22, "democracy_importance": 8.9}, {"country": "AUS", "age": 23, "democracy_importance": 6.7272727272727275}, {"country": "AUS", "age": 24, "democracy_importance": 8.125}, {"country": "AUS", "age": 25, "democracy_importance": 8.842105263157896}, {"country": "AUS", "age": 26, "democracy_importance": 8.666666666666666}, {"country": "AUS", "age": 27, "democracy_importance": 6.6875}, {"country": "AUS", "age": 28, "democracy_importance": 7.25}, {"country": "AUS", "age": 29, "democracy_importance": 7.72}, {"country": "AUS", "age": 30, "democracy_importance": 8.0}, {"country": "AUS", "age": 31, "democracy_importance": 8.285714285714286}, {"country": "AUS", "age": 32, "democracy_importance": 8.647058823529411}, {"country": "AUS", "age": 33, "democracy_importance": 8.535714285714286}, {"country": "AUS", "age": 34, "democracy_importance": 8.0}, {"country": "AUS", "age": 35, "democracy_importance": 9.28}, {"country": "AUS", "age": 36, "democracy_importance": 8.227272727272727}, {"country": "AUS", "age": 37, "democracy_importance": 8.807692307692308}, {"country": "AUS", "age": 38, "democracy_importance": 9.764705882352942}, {"country": "AUS", "age": 39, "democracy_importance": 9.03448275862069}, {"country": "AUS", "age": 40, "democracy_importance": 9.16}, {"country": "AUS", "age": 41, "democracy_importance": 8.9}, {"country": "AUS", "age": 42, "democracy_importance": 8.75}, {"country": "AUS", "age": 43, "democracy_importance": 8.32258064516129}, {"country": "AUS", "age": 44, "democracy_importance": 8.416666666666666}, {"country": "AUS", "age": 45, "democracy_importance": 8.742857142857142}, {"country": "AUS", "age": 46, "democracy_importance": 9.5}, {"country": "AUS", "age": 47, "democracy_importance": 9.035714285714286}, {"country": "AUS", "age": 48, "democracy_importance": 8.714285714285714}, {"country": "AUS", "age": 49, "democracy_importance": 9.0}, {"country": "AUS", "age": 50, "democracy_importance": 8.777777777777779}, {"country": "AUS", "age": 51, "democracy_importance": 9.476190476190476}, {"country": "AUS", "age": 52, "democracy_importance": 9.181818181818182}, {"country": "AUS", "age": 53, "democracy_importance": 9.222222222222221}, {"country": "AUS", "age": 54, "democracy_importance": 9.275862068965518}, {"country": "AUS", "age": 55, "democracy_importance": 9.452830188679245}, {"country": "AUS", "age": 56, "democracy_importance": 9.314285714285715}, {"country": "AUS", "age": 57, "democracy_importance": 9.319148936170214}, {"country": "AUS", "age": 58, "democracy_importance": 9.175}, {"country": "AUS", "age": 59, "democracy_importance": 9.576923076923077}, {"country": "AUS", "age": 60, "democracy_importance": 9.085714285714285}, {"country": "AUS", "age": 61, "democracy_importance": 9.576923076923077}, {"country": "AUS", "age": 62, "democracy_importance": 9.456521739130435}, {"country": "AUS", "age": 63, "democracy_importance": 9.285714285714286}, {"country": "AUS", "age": 64, "democracy_importance": 9.35}, {"country": "AUS", "age": 65, "democracy_importance": 9.617647058823529}, {"country": "AUS", "age": 66, "democracy_importance": 9.904761904761905}, {"country": "AUS", "age": 67, "democracy_importance": 9.488372093023257}, {"country": "AUS", "age": 68, "democracy_importance": 9.42}, {"country": "AUS", "age": 69, "democracy_importance": 9.457142857142857}, {"country": "AUS", "age": 70, "democracy_importance": 9.21875}, {"country": "AUS", "age": 71, "democracy_importance": 9.423076923076923}, {"country": "AUS", "age": 72, "democracy_importance": 9.6}, {"country": "AUS", "age": 73, "democracy_importance": 9.130434782608695}, {"country": "AUS", "age": 74, "democracy_importance": 9.516129032258064}, {"country": "AUS", "age": 75, "democracy_importance": 9.478260869565217}, {"country": "AUS", "age": 76, "democracy_importance": 9.933333333333334}, {"country": "AUS", "age": 77, "democracy_importance": 9.689655172413794}, {"country": "AUS", "age": 78, "democracy_importance": 9.470588235294118}, {"country": "AUS", "age": 79, "democracy_importance": 9.428571428571429}, {"country": "AUS", "age": 80, "democracy_importance": 9.421052631578947}, {"country": "AUS", "age": 81, "democracy_importance": 9.538461538461538}, {"country": "AUS", "age": 82, "democracy_importance": 9.5}, {"country": "AUS", "age": 83, "democracy_importance": 9.636363636363637}, {"country": "AUS", "age": 84, "democracy_importance": 9.5}, {"country": "AUS", "age": 85, "democracy_importance": 8.923076923076923}, {"country": "AUS", "age": 86, "democracy_importance": 9.714285714285714}, {"country": "AUS", "age": 87, "democracy_importance": 8.0}, {"country": "AUS", "age": 88, "democracy_importance": 8.5}, {"country": "AUS", "age": 89, "democracy_importance": 10.0}, {"country": "AUS", "age": 90, "democracy_importance": 10.0}, {"country": "AUS", "age": 91, "democracy_importance": 7.6}, {"country": "AUS", "age": 92, "democracy_importance": 10.0}, {"country": "AUS", "age": 93, "democracy_importance": 9.5}, {"country": "AUS", "age": 94, "democracy_importance": 10.0}, {"country": "AUS", "age": 98, "democracy_importance": 5.0}, {"country": "CAN", "age": 18, "democracy_importance": 7.8478260869565215}, {"country": "CAN", "age": 19, "democracy_importance": 7.882352941176471}, {"country": "CAN", "age": 20, "democracy_importance": 8.047619047619047}, {"country": "CAN", "age": 21, "democracy_importance": 7.983050847457627}, {"country": "CAN", "age": 22, "democracy_importance": 7.676470588235294}, {"country": "CAN", "age": 23, "democracy_importance": 8.048387096774194}, {"country": "CAN", "age": 24, "democracy_importance": 8.014492753623188}, {"country": "CAN", "age": 25, "democracy_importance": 8.088235294117647}, {"country": "CAN", "age": 26, "democracy_importance": 8.146341463414634}, {"country": "CAN", "age": 27, "democracy_importance": 8.342857142857143}, {"country": "CAN", "age": 28, "democracy_importance": 8.675675675675675}, {"country": "CAN", "age": 29, "democracy_importance": 8.411764705882353}, {"country": "CAN", "age": 30, "democracy_importance": 8.307692307692308}, {"country": "CAN", "age": 31, "democracy_importance": 8.283950617283951}, {"country": "CAN", "age": 32, "democracy_importance": 8.720930232558139}, {"country": "CAN", "age": 33, "democracy_importance": 8.342105263157896}, {"country": "CAN", "age": 34, "democracy_importance": 8.278688524590164}, {"country": "CAN", "age": 35, "democracy_importance": 8.552941176470588}, {"country": "CAN", "age": 36, "democracy_importance": 8.507042253521126}, {"country": "CAN", "age": 37, "democracy_importance": 8.37037037037037}, {"country": "CAN", "age": 38, "democracy_importance": 8.544444444444444}, {"country": "CAN", "age": 39, "democracy_importance": 8.032967032967033}, {"country": "CAN", "age": 40, "democracy_importance": 8.627906976744185}, {"country": "CAN", "age": 41, "democracy_importance": 8.457142857142857}, {"country": "CAN", "age": 42, "democracy_importance": 8.457627118644067}, {"country": "CAN", "age": 43, "democracy_importance": 8.555555555555555}, {"country": "CAN", "age": 44, "democracy_importance": 8.363636363636363}, {"country": "CAN", "age": 45, "democracy_importance": 8.842857142857143}, {"country": "CAN", "age": 46, "democracy_importance": 8.183333333333334}, {"country": "CAN", "age": 47, "democracy_importance": 8.673469387755102}, {"country": "CAN", "age": 48, "democracy_importance": 8.851851851851851}, {"country": "CAN", "age": 49, "democracy_importance": 8.140845070422536}, {"country": "CAN", "age": 50, "democracy_importance": 8.817073170731707}, {"country": "CAN", "age": 51, "democracy_importance": 8.55072463768116}, {"country": "CAN", "age": 52, "democracy_importance": 8.859375}, {"country": "CAN", "age": 53, "democracy_importance": 8.726027397260275}, {"country": "CAN", "age": 54, "democracy_importance": 8.944444444444445}, {"country": "CAN", "age": 55, "democracy_importance": 9.033333333333333}, {"country": "CAN", "age": 56, "democracy_importance": 9.285714285714286}, {"country": "CAN", "age": 57, "democracy_importance": 8.627450980392156}, {"country": "CAN", "age": 58, "democracy_importance": 9.161290322580646}, {"country": "CAN", "age": 59, "democracy_importance": 9.176470588235293}, {"country": "CAN", "age": 60, "democracy_importance": 9.057971014492754}, {"country": "CAN", "age": 61, "democracy_importance": 9.277777777777779}, {"country": "CAN", "age": 62, "democracy_importance": 9.417721518987342}, {"country": "CAN", "age": 63, "democracy_importance": 9.053333333333333}, {"country": "CAN", "age": 64, "democracy_importance": 9.129032258064516}, {"country": "CAN", "age": 65, "democracy_importance": 9.307692307692308}, {"country": "CAN", "age": 66, "democracy_importance": 9.36144578313253}, {"country": "CAN", "age": 67, "democracy_importance": 9.576271186440678}, {"country": "CAN", "age": 68, "democracy_importance": 9.318840579710145}, {"country": "CAN", "age": 69, "democracy_importance": 9.458333333333334}, {"country": "CAN", "age": 70, "democracy_importance": 9.483333333333333}, {"country": "CAN", "age": 71, "democracy_importance": 9.547169811320755}, {"country": "CAN", "age": 72, "democracy_importance": 9.439024390243903}, {"country": "CAN", "age": 73, "democracy_importance": 9.870967741935484}, {"country": "CAN", "age": 74, "democracy_importance": 9.825}, {"country": "CAN", "age": 75, "democracy_importance": 9.5}, {"country": "CAN", "age": 76, "democracy_importance": 9.657142857142857}, {"country": "CAN", "age": 77, "democracy_importance": 9.64516129032258}, {"country": "CAN", "age": 78, "democracy_importance": 9.55}, {"country": "CAN", "age": 79, "democracy_importance": 9.75}, {"country": "CAN", "age": 80, "democracy_importance": 9.25}, {"country": "CAN", "age": 81, "democracy_importance": 9.5}, {"country": "CAN", "age": 82, "democracy_importance": 9.846153846153847}, {"country": "CAN", "age": 83, "democracy_importance": 10.0}, {"country": "CAN", "age": 84, "democracy_importance": 10.0}, {"country": "CAN", "age": 85, "democracy_importance": 9.8}, {"country": "CAN", "age": 86, "democracy_importance": 10.0}, {"country": "CAN", "age": 88, "democracy_importance": 9.5}, {"country": "CAN", "age": 89, "democracy_importance": 9.666666666666666}, {"country": "CAN", "age": 93, "democracy_importance": 10.0}, {"country": "DEU", "age": 18, "democracy_importance": 9.125}, {"country": "DEU", "age": 19, "democracy_importance": 9.4}, {"country": "DEU", "age": 20, "democracy_importance": 9.16}, {"country": "DEU", "age": 21, "democracy_importance": 9.375}, {"country": "DEU", "age": 22, "democracy_importance": 8.736842105263158}, {"country": "DEU", "age": 23, "democracy_importance": 9.166666666666666}, {"country": "DEU", "age": 24, "democracy_importance": 9.214285714285714}, {"country": "DEU", "age": 25, "democracy_importance": 9.173913043478262}, {"country": "DEU", "age": 26, "democracy_importance": 8.466666666666667}, {"country": "DEU", "age": 27, "democracy_importance": 9.347826086956522}, {"country": "DEU", "age": 28, "democracy_importance": 9.307692307692308}, {"country": "DEU", "age": 29, "democracy_importance": 8.806451612903226}, {"country": "DEU", "age": 30, "democracy_importance": 9.647058823529411}, {"country": "DEU", "age": 31, "democracy_importance": 8.944444444444445}, {"country": "DEU", "age": 32, "democracy_importance": 9.285714285714286}, {"country": "DEU", "age": 33, "democracy_importance": 9.238095238095237}, {"country": "DEU", "age": 34, "democracy_importance": 9.4}, {"country": "DEU", "age": 35, "democracy_importance": 9.6}, {"country": "DEU", "age": 36, "democracy_importance": 8.75}, {"country": "DEU", "age": 37, "democracy_importance": 9.428571428571429}, {"country": "DEU", "age": 38, "democracy_importance": 8.952380952380953}, {"country": "DEU", "age": 39, "democracy_importance": 9.363636363636363}, {"country": "DEU", "age": 40, "democracy_importance": 9.4}, {"country": "DEU", "age": 41, "democracy_importance": 9.15}, {"country": "DEU", "age": 42, "democracy_importance": 8.666666666666666}, {"country": "DEU", "age": 43, "democracy_importance": 9.555555555555555}, {"country": "DEU", "age": 44, "democracy_importance": 9.642857142857142}, {"country": "DEU", "age": 45, "democracy_importance": 9.071428571428571}, {"country": "DEU", "age": 46, "democracy_importance": 9.5}, {"country": "DEU", "age": 47, "democracy_importance": 9.655172413793103}, {"country": "DEU", "age": 48, "democracy_importance": 9.756756756756756}, {"country": "DEU", "age": 49, "democracy_importance": 9.404761904761905}, {"country": "DEU", "age": 50, "democracy_importance": 9.485714285714286}, {"country": "DEU", "age": 51, "democracy_importance": 9.535714285714286}, {"country": "DEU", "age": 52, "democracy_importance": 9.714285714285714}, {"country": "DEU", "age": 53, "democracy_importance": 9.6}, {"country": "DEU", "age": 54, "democracy_importance": 9.761904761904763}, {"country": "DEU", "age": 55, "democracy_importance": 9.7}, {"country": "DEU", "age": 56, "democracy_importance": 9.514285714285714}, {"country": "DEU", "age": 57, "democracy_importance": 9.73913043478261}, {"country": "DEU", "age": 58, "democracy_importance": 9.52}, {"country": "DEU", "age": 59, "democracy_importance": 9.227272727272727}, {"country": "DEU", "age": 60, "democracy_importance": 9.592592592592593}, {"country": "DEU", "age": 61, "democracy_importance": 9.91304347826087}, {"country": "DEU", "age": 62, "democracy_importance": 9.76923076923077}, {"country": "DEU", "age": 63, "democracy_importance": 9.642857142857142}, {"country": "DEU", "age": 64, "democracy_importance": 9.181818181818182}, {"country": "DEU", "age": 65, "democracy_importance": 9.458333333333334}, {"country": "DEU", "age": 66, "democracy_importance": 9.93939393939394}, {"country": "DEU", "age": 67, "democracy_importance": 9.4}, {"country": "DEU", "age": 68, "democracy_importance": 10.0}, {"country": "DEU", "age": 69, "democracy_importance": 9.65}, {"country": "DEU", "age": 70, "democracy_importance": 9.909090909090908}, {"country": "DEU", "age": 71, "democracy_importance": 9.944444444444445}, {"country": "DEU", "age": 72, "democracy_importance": 9.875}, {"country": "DEU", "age": 73, "democracy_importance": 9.705882352941176}, {"country": "DEU", "age": 74, "democracy_importance": 9.65}, {"country": "DEU", "age": 75, "democracy_importance": 9.851851851851851}, {"country": "DEU", "age": 76, "democracy_importance": 9.3}, {"country": "DEU", "age": 77, "democracy_importance": 9.458333333333334}, {"country": "DEU", "age": 78, "democracy_importance": 9.928571428571429}, {"country": "DEU", "age": 79, "democracy_importance": 10.0}, {"country": "DEU", "age": 80, "democracy_importance": 8.909090909090908}, {"country": "DEU", "age": 81, "democracy_importance": 10.0}, {"country": "DEU", "age": 82, "democracy_importance": 9.75}, {"country": "DEU", "age": 83, "democracy_importance": 9.909090909090908}, {"country": "DEU", "age": 84, "democracy_importance": 10.0}, {"country": "DEU", "age": 85, "democracy_importance": 8.88888888888889}, {"country": "DEU", "age": 86, "democracy_importance": 10.0}, {"country": "DEU", "age": 87, "democracy_importance": 10.0}, {"country": "DEU", "age": 88, "democracy_importance": 8.8}, {"country": "DEU", "age": 89, "democracy_importance": 10.0}, {"country": "DEU", "age": 91, "democracy_importance": 10.0}, {"country": "DEU", "age": 92, "democracy_importance": 10.0}, {"country": "DEU", "age": 93, "democracy_importance": 10.0}, {"country": "DEU", "age": 96, "democracy_importance": 8.0}, {"country": "GBR", "age": 18, "democracy_importance": 8.041666666666666}, {"country": "GBR", "age": 19, "democracy_importance": 8.125}, {"country": "GBR", "age": 20, "democracy_importance": 7.6923076923076925}, {"country": "GBR", "age": 21, "democracy_importance": 8.0}, {"country": "GBR", "age": 22, "democracy_importance": 8.55}, {"country": "GBR", "age": 23, "democracy_importance": 7.96969696969697}, {"country": "GBR", "age": 24, "democracy_importance": 8.15625}, {"country": "GBR", "age": 25, "democracy_importance": 8.409090909090908}, {"country": "GBR", "age": 26, "democracy_importance": 8.303030303030303}, {"country": "GBR", "age": 27, "democracy_importance": 8.607142857142858}, {"country": "GBR", "age": 28, "democracy_importance": 8.451612903225806}, {"country": "GBR", "age": 29, "democracy_importance": 8.448275862068966}, {"country": "GBR", "age": 30, "democracy_importance": 8.380952380952381}, {"country": "GBR", "age": 31, "democracy_importance": 8.298245614035087}, {"country": "GBR", "age": 32, "democracy_importance": 7.733333333333333}, {"country": "GBR", "age": 33, "democracy_importance": 8.177777777777777}, {"country": "GBR", "age": 34, "democracy_importance": 8.65}, {"country": "GBR", "age": 35, "democracy_importance": 8.911764705882353}, {"country": "GBR", "age": 36, "democracy_importance": 8.742857142857142}, {"country": "GBR", "age": 37, "democracy_importance": 8.6875}, {"country": "GBR", "age": 38, "democracy_importance": 8.5}, {"country": "GBR", "age": 39, "democracy_importance": 9.025}, {"country": "GBR", "age": 40, "democracy_importance": 8.885714285714286}, {"country": "GBR", "age": 41, "democracy_importance": 9.11111111111111}, {"country": "GBR", "age": 42, "democracy_importance": 8.833333333333334}, {"country": "GBR", "age": 43, "democracy_importance": 8.704545454545455}, {"country": "GBR", "age": 44, "democracy_importance": 8.893617021276595}, {"country": "GBR", "age": 45, "democracy_importance": 8.583333333333334}, {"country": "GBR", "age": 46, "democracy_importance": 9.297297297297296}, {"country": "GBR", "age": 47, "democracy_importance": 8.67741935483871}, {"country": "GBR", "age": 48, "democracy_importance": 8.891891891891891}, {"country": "GBR", "age": 49, "democracy_importance": 9.096774193548388}, {"country": "GBR", "age": 50, "democracy_importance": 9.0}, {"country": "GBR", "age": 51, "democracy_importance": 9.028571428571428}, {"country": "GBR", "age": 52, "democracy_importance": 8.777777777777779}, {"country": "GBR", "age": 53, "democracy_importance": 8.930232558139535}, {"country": "GBR", "age": 54, "democracy_importance": 8.953488372093023}, {"country": "GBR", "age": 55, "democracy_importance": 9.170212765957446}, {"country": "GBR", "age": 56, "democracy_importance": 9.106382978723405}, {"country": "GBR", "age": 57, "democracy_importance": 9.552631578947368}, {"country": "GBR", "age": 58, "democracy_importance": 9.30952380952381}, {"country": "GBR", "age": 59, "democracy_importance": 9.282608695652174}, {"country": "GBR", "age": 60, "democracy_importance": 9.325}, {"country": "GBR", "age": 61, "democracy_importance": 9.31578947368421}, {"country": "GBR", "age": 62, "democracy_importance": 9.31578947368421}, {"country": "GBR", "age": 63, "democracy_importance": 9.4}, {"country": "GBR", "age": 64, "democracy_importance": 9.227272727272727}, {"country": "GBR", "age": 65, "democracy_importance": 8.74}, {"country": "GBR", "age": 66, "democracy_importance": 9.583333333333334}, {"country": "GBR", "age": 67, "democracy_importance": 9.45945945945946}, {"country": "GBR", "age": 68, "democracy_importance": 9.414634146341463}, {"country": "GBR", "age": 69, "democracy_importance": 9.372549019607844}, {"country": "GBR", "age": 70, "democracy_importance": 9.487804878048781}, {"country": "GBR", "age": 71, "democracy_importance": 9.785714285714286}, {"country": "GBR", "age": 72, "democracy_importance": 9.27027027027027}, {"country": "GBR", "age": 73, "democracy_importance": 9.355555555555556}, {"country": "GBR", "age": 74, "democracy_importance": 9.135135135135135}, {"country": "GBR", "age": 75, "democracy_importance": 9.394736842105264}, {"country": "GBR", "age": 76, "democracy_importance": 9.653846153846153}, {"country": "GBR", "age": 77, "democracy_importance": 8.72972972972973}, {"country": "GBR", "age": 78, "democracy_importance": 9.105263157894736}, {"country": "GBR", "age": 79, "democracy_importance": 9.4}, {"country": "GBR", "age": 80, "democracy_importance": 9.0}, {"country": "GBR", "age": 81, "democracy_importance": 8.666666666666666}, {"country": "GBR", "age": 82, "democracy_importance": 9.571428571428571}, {"country": "GBR", "age": 83, "democracy_importance": 9.25}, {"country": "GBR", "age": 84, "democracy_importance": 8.947368421052632}, {"country": "GBR", "age": 85, "democracy_importance": 8.466666666666667}, {"country": "GBR", "age": 86, "democracy_importance": 9.416666666666666}, {"country": "GBR", "age": 87, "democracy_importance": 9.2}, {"country": "GBR", "age": 88, "democracy_importance": 9.833333333333334}, {"country": "GBR", "age": 89, "democracy_importance": 8.25}, {"country": "GBR", "age": 90, "democracy_importance": 9.166666666666666}, {"country": "GBR", "age": 91, "democracy_importance": 10.0}, {"country": "GBR", "age": 92, "democracy_importance": 10.0}, {"country": "GBR", "age": 94, "democracy_importance": 10.0}, {"country": "GBR", "age": 95, "democracy_importance": 9.0}, {"country": "GBR", "age": 96, "democracy_importance": 10.0}, {"country": "KOR", "age": 18, "democracy_importance": 7.5625}, {"country": "KOR", "age": 19, "democracy_importance": 8.083333333333334}, {"country": "KOR", "age": 20, "democracy_importance": 8.666666666666666}, {"country": "KOR", "age": 21, "democracy_importance": 7.7}, {"country": "KOR", "age": 22, "democracy_importance": 7.9411764705882355}, {"country": "KOR", "age": 23, "democracy_importance": 8.095238095238095}, {"country": "KOR", "age": 24, "democracy_importance": 7.9375}, {"country": "KOR", "age": 25, "democracy_importance": 7.419354838709677}, {"country": "KOR", "age": 26, "democracy_importance": 8.192307692307692}, {"country": "KOR", "age": 27, "democracy_importance": 7.761904761904762}, {"country": "KOR", "age": 28, "democracy_importance": 7.896551724137931}, {"country": "KOR", "age": 29, "democracy_importance": 8.095238095238095}, {"country": "KOR", "age": 30, "democracy_importance": 8.45}, {"country": "KOR", "age": 31, "democracy_importance": 7.0}, {"country": "KOR", "age": 32, "democracy_importance": 8.6}, {"country": "KOR", "age": 33, "democracy_importance": 6.857142857142857}, {"country": "KOR", "age": 34, "democracy_importance": 7.5}, {"country": "KOR", "age": 35, "democracy_importance": 7.782608695652174}, {"country": "KOR", "age": 36, "democracy_importance": 7.833333333333333}, {"country": "KOR", "age": 37, "democracy_importance": 8.35135135135135}, {"country": "KOR", "age": 38, "democracy_importance": 8.235294117647058}, {"country": "KOR", "age": 39, "democracy_importance": 8.615384615384615}, {"country": "KOR", "age": 40, "democracy_importance": 7.956521739130435}, {"country": "KOR", "age": 41, "democracy_importance": 7.944444444444445}, {"country": "KOR", "age": 42, "democracy_importance": 7.9}, {"country": "KOR", "age": 43, "democracy_importance": 8.181818181818182}, {"country": "KOR", "age": 44, "democracy_importance": 7.6521739130434785}, {"country": "KOR", "age": 45, "democracy_importance": 7.777777777777778}, {"country": "KOR", "age": 46, "democracy_importance": 7.88}, {"country": "KOR", "age": 47, "democracy_importance": 8.13953488372093}, {"country": "KOR", "age": 48, "democracy_importance": 7.870967741935484}, {"country": "KOR", "age": 49, "democracy_importance": 7.724137931034483}, {"country": "KOR", "age": 50, "democracy_importance": 8.37037037037037}, {"country": "KOR", "age": 51, "democracy_importance": 7.521739130434782}, {"country": "KOR", "age": 52, "democracy_importance": 7.689655172413793}, {"country": "KOR", "age": 53, "democracy_importance": 8.5}, {"country": "KOR", "age": 54, "democracy_importance": 8.238095238095237}, {"country": "KOR", "age": 55, "democracy_importance": 7.5}, {"country": "KOR", "age": 56, "democracy_importance": 8.2}, {"country": "KOR", "age": 57, "democracy_importance": 7.62962962962963}, {"country": "KOR", "age": 58, "democracy_importance": 7.708333333333333}, {"country": "KOR", "age": 59, "democracy_importance": 7.870967741935484}, {"country": "KOR", "age": 60, "democracy_importance": 7.65}, {"country": "KOR", "age": 61, "democracy_importance": 7.825}, {"country": "KOR", "age": 62, "democracy_importance": 8.083333333333334}, {"country": "KOR", "age": 63, "democracy_importance": 7.625}, {"country": "KOR", "age": 64, "democracy_importance": 8.129032258064516}, {"country": "KOR", "age": 65, "democracy_importance": 7.590909090909091}, {"country": "KOR", "age": 66, "democracy_importance": 8.2}, {"country": "KOR", "age": 67, "democracy_importance": 7.4}, {"country": "KOR", "age": 68, "democracy_importance": 8.090909090909092}, {"country": "KOR", "age": 69, "democracy_importance": 6.5}, {"country": "KOR", "age": 70, "democracy_importance": 8.5}, {"country": "KOR", "age": 71, "democracy_importance": 7.166666666666667}, {"country": "KOR", "age": 72, "democracy_importance": 8.0}, {"country": "KOR", "age": 73, "democracy_importance": 8.6}, {"country": "KOR", "age": 74, "democracy_importance": 7.666666666666667}, {"country": "KOR", "age": 75, "democracy_importance": 6.875}, {"country": "KOR", "age": 76, "democracy_importance": 7.5}, {"country": "KOR", "age": 77, "democracy_importance": 6.5}, {"country": "KOR", "age": 78, "democracy_importance": 8.0}, {"country": "KOR", "age": 79, "democracy_importance": 7.0}, {"country": "KOR", "age": 80, "democracy_importance": 8.0}, {"country": "KOR", "age": 81, "democracy_importance": 7.0}, {"country": "KOR", "age": 82, "democracy_importance": 6.0}, {"country": "KOR", "age": 85, "democracy_importance": 9.0}, {"country": "KOR", "age": 86, "democracy_importance": 9.0}, {"country": "KOR", "age": 88, "democracy_importance": 6.0}, {"country": "MEX", "age": 18, "democracy_importance": 8.514285714285714}, {"country": "MEX", "age": 19, "democracy_importance": 8.763157894736842}, {"country": "MEX", "age": 20, "democracy_importance": 8.063829787234043}, {"country": "MEX", "age": 21, "democracy_importance": 7.5}, {"country": "MEX", "age": 22, "democracy_importance": 8.314285714285715}, {"country": "MEX", "age": 23, "democracy_importance": 8.21951219512195}, {"country": "MEX", "age": 24, "democracy_importance": 7.92}, {"country": "MEX", "age": 25, "democracy_importance": 7.972972972972973}, {"country": "MEX", "age": 26, "democracy_importance": 8.216216216216216}, {"country": "MEX", "age": 27, "democracy_importance": 8.625}, {"country": "MEX", "age": 28, "democracy_importance": 8.071428571428571}, {"country": "MEX", "age": 29, "democracy_importance": 8.024390243902438}, {"country": "MEX", "age": 30, "democracy_importance": 7.9787234042553195}, {"country": "MEX", "age": 31, "democracy_importance": 8.176470588235293}, {"country": "MEX", "age": 32, "democracy_importance": 8.177777777777777}, {"country": "MEX", "age": 33, "democracy_importance": 8.153846153846153}, {"country": "MEX", "age": 34, "democracy_importance": 8.774193548387096}, {"country": "MEX", "age": 35, "democracy_importance": 8.483870967741936}, {"country": "MEX", "age": 36, "democracy_importance": 8.73076923076923}, {"country": "MEX", "age": 37, "democracy_importance": 8.2}, {"country": "MEX", "age": 38, "democracy_importance": 8.390243902439025}, {"country": "MEX", "age": 39, "democracy_importance": 8.290322580645162}, {"country": "MEX", "age": 40, "democracy_importance": 8.36111111111111}, {"country": "MEX", "age": 41, "democracy_importance": 8.153846153846153}, {"country": "MEX", "age": 42, "democracy_importance": 8.428571428571429}, {"country": "MEX", "age": 43, "democracy_importance": 8.96875}, {"country": "MEX", "age": 44, "democracy_importance": 8.318181818181818}, {"country": "MEX", "age": 45, "democracy_importance": 8.242424242424242}, {"country": "MEX", "age": 46, "democracy_importance": 7.793103448275862}, {"country": "MEX", "age": 47, "democracy_importance": 8.11111111111111}, {"country": "MEX", "age": 48, "democracy_importance": 8.789473684210526}, {"country": "MEX", "age": 49, "democracy_importance": 8.030303030303031}, {"country": "MEX", "age": 50, "democracy_importance": 7.675675675675675}, {"country": "MEX", "age": 51, "democracy_importance": 8.5}, {"country": "MEX", "age": 52, "democracy_importance": 7.866666666666666}, {"country": "MEX", "age": 53, "democracy_importance": 8.323529411764707}, {"country": "MEX", "age": 54, "democracy_importance": 8.655172413793103}, {"country": "MEX", "age": 55, "democracy_importance": 9.0}, {"country": "MEX", "age": 56, "democracy_importance": 8.387096774193548}, {"country": "MEX", "age": 57, "democracy_importance": 8.142857142857142}, {"country": "MEX", "age": 58, "democracy_importance": 8.392857142857142}, {"country": "MEX", "age": 59, "democracy_importance": 8.631578947368421}, {"country": "MEX", "age": 60, "democracy_importance": 8.580645161290322}, {"country": "MEX", "age": 61, "democracy_importance": 7.571428571428571}, {"country": "MEX", "age": 62, "democracy_importance": 8.380952380952381}, {"country": "MEX", "age": 63, "democracy_importance": 8.666666666666666}, {"country": "MEX", "age": 64, "democracy_importance": 8.8}, {"country": "MEX", "age": 65, "democracy_importance": 8.516129032258064}, {"country": "MEX", "age": 66, "democracy_importance": 8.857142857142858}, {"country": "MEX", "age": 67, "democracy_importance": 8.5}, {"country": "MEX", "age": 68, "democracy_importance": 8.290322580645162}, {"country": "MEX", "age": 69, "democracy_importance": 8.076923076923077}, {"country": "MEX", "age": 70, "democracy_importance": 8.55}, {"country": "MEX", "age": 71, "democracy_importance": 8.461538461538462}, {"country": "MEX", "age": 72, "democracy_importance": 8.25}, {"country": "MEX", "age": 73, "democracy_importance": 7.384615384615385}, {"country": "MEX", "age": 74, "democracy_importance": 6.857142857142857}, {"country": "MEX", "age": 75, "democracy_importance": 8.833333333333334}, {"country": "MEX", "age": 76, "democracy_importance": 8.666666666666666}, {"country": "MEX", "age": 77, "democracy_importance": 8.25}, {"country": "MEX", "age": 78, "democracy_importance": 8.0}, {"country": "MEX", "age": 79, "democracy_importance": 9.333333333333334}, {"country": "MEX", "age": 80, "democracy_importance": 9.375}, {"country": "MEX", "age": 81, "democracy_importance": 9.0}, {"country": "MEX", "age": 82, "democracy_importance": 9.8}, {"country": "MEX", "age": 83, "democracy_importance": 8.5}, {"country": "MEX", "age": 84, "democracy_importance": 7.5}, {"country": "MEX", "age": 85, "democracy_importance": 10.0}, {"country": "MEX", "age": 87, "democracy_importance": 6.0}, {"country": "MEX", "age": 88, "democracy_importance": 10.0}, {"country": "MEX", "age": 89, "democracy_importance": 9.0}, {"country": "MEX", "age": 90, "democracy_importance": 8.0}, {"country": "NLD", "age": 19, "democracy_importance": 7.363636363636363}, {"country": "NLD", "age": 20, "democracy_importance": 8.0}, {"country": "NLD", "age": 21, "democracy_importance": 8.333333333333334}, {"country": "NLD", "age": 22, "democracy_importance": 8.083333333333334}, {"country": "NLD", "age": 23, "democracy_importance": 7.8}, {"country": "NLD", "age": 24, "democracy_importance": 8.5}, {"country": "NLD", "age": 25, "democracy_importance": 8.529411764705882}, {"country": "NLD", "age": 26, "democracy_importance": 8.333333333333334}, {"country": "NLD", "age": 27, "democracy_importance": 9.1}, {"country": "NLD", "age": 28, "democracy_importance": 8.208333333333334}, {"country": "NLD", "age": 29, "democracy_importance": 8.416666666666666}, {"country": "NLD", "age": 30, "democracy_importance": 8.434782608695652}, {"country": "NLD", "age": 31, "democracy_importance": 8.85}, {"country": "NLD", "age": 32, "democracy_importance": 8.448275862068966}, {"country": "NLD", "age": 33, "democracy_importance": 8.208333333333334}, {"country": "NLD", "age": 34, "democracy_importance": 8.48}, {"country": "NLD", "age": 35, "democracy_importance": 8.0}, {"country": "NLD", "age": 36, "democracy_importance": 8.03448275862069}, {"country": "NLD", "age": 37, "democracy_importance": 8.3}, {"country": "NLD", "age": 38, "democracy_importance": 8.263157894736842}, {"country": "NLD", "age": 39, "democracy_importance": 8.166666666666666}, {"country": "NLD", "age": 40, "democracy_importance": 8.666666666666666}, {"country": "NLD", "age": 41, "democracy_importance": 8.217391304347826}, {"country": "NLD", "age": 42, "democracy_importance": 8.6}, {"country": "NLD", "age": 43, "democracy_importance": 8.18918918918919}, {"country": "NLD", "age": 44, "democracy_importance": 8.517241379310345}, {"country": "NLD", "age": 45, "democracy_importance": 8.733333333333333}, {"country": "NLD", "age": 46, "democracy_importance": 9.130434782608695}, {"country": "NLD", "age": 47, "democracy_importance": 8.205882352941176}, {"country": "NLD", "age": 48, "democracy_importance": 8.653846153846153}, {"country": "NLD", "age": 49, "democracy_importance": 8.731707317073171}, {"country": "NLD", "age": 50, "democracy_importance": 8.807692307692308}, {"country": "NLD", "age": 51, "democracy_importance": 8.521739130434783}, {"country": "NLD", "age": 52, "democracy_importance": 8.472222222222221}, {"country": "NLD", "age": 53, "democracy_importance": 8.945945945945946}, {"country": "NLD", "age": 54, "democracy_importance": 8.744186046511627}, {"country": "NLD", "age": 55, "democracy_importance": 8.516129032258064}, {"country": "NLD", "age": 56, "democracy_importance": 9.105263157894736}, {"country": "NLD", "age": 57, "democracy_importance": 8.926829268292684}, {"country": "NLD", "age": 58, "democracy_importance": 9.075}, {"country": "NLD", "age": 59, "democracy_importance": 8.87037037037037}, {"country": "NLD", "age": 60, "democracy_importance": 9.09433962264151}, {"country": "NLD", "age": 61, "democracy_importance": 9.024390243902438}, {"country": "NLD", "age": 62, "democracy_importance": 9.176470588235293}, {"country": "NLD", "age": 63, "democracy_importance": 9.354166666666666}, {"country": "NLD", "age": 64, "democracy_importance": 8.966101694915254}, {"country": "NLD", "age": 65, "democracy_importance": 9.140350877192983}, {"country": "NLD", "age": 66, "democracy_importance": 8.703703703703704}, {"country": "NLD", "age": 67, "democracy_importance": 9.166666666666666}, {"country": "NLD", "age": 68, "democracy_importance": 8.870967741935484}, {"country": "NLD", "age": 69, "democracy_importance": 9.162162162162161}, {"country": "NLD", "age": 70, "democracy_importance": 9.314285714285715}, {"country": "NLD", "age": 71, "democracy_importance": 9.16}, {"country": "NLD", "age": 72, "democracy_importance": 9.11111111111111}, {"country": "NLD", "age": 73, "democracy_importance": 9.476190476190476}, {"country": "NLD", "age": 74, "democracy_importance": 9.527777777777779}, {"country": "NLD", "age": 75, "democracy_importance": 9.53125}, {"country": "NLD", "age": 76, "democracy_importance": 9.0}, {"country": "NLD", "age": 77, "democracy_importance": 9.55}, {"country": "NLD", "age": 78, "democracy_importance": 8.962962962962964}, {"country": "NLD", "age": 79, "democracy_importance": 9.363636363636363}, {"country": "NLD", "age": 80, "democracy_importance": 9.363636363636363}, {"country": "NLD", "age": 81, "democracy_importance": 9.0}, {"country": "NLD", "age": 82, "democracy_importance": 9.6}, {"country": "NLD", "age": 83, "democracy_importance": 9.375}, {"country": "NLD", "age": 84, "democracy_importance": 9.25}, {"country": "NLD", "age": 85, "democracy_importance": 9.142857142857142}, {"country": "NLD", "age": 86, "democracy_importance": 9.2}, {"country": "NLD", "age": 87, "democracy_importance": 7.4}, {"country": "NLD", "age": 88, "democracy_importance": 9.0}, {"country": "NLD", "age": 89, "democracy_importance": 9.4}, {"country": "NLD", "age": 91, "democracy_importance": 10.0}, {"country": "NLD", "age": 92, "democracy_importance": 10.0}, {"country": "NLD", "age": 93, "democracy_importance": 10.0}, {"country": "NLD", "age": 94, "democracy_importance": 10.0}, {"country": "SWE", "age": 18, "democracy_importance": 7.6}, {"country": "SWE", "age": 19, "democracy_importance": 8.588235294117647}, {"country": "SWE", "age": 20, "democracy_importance": 8.212121212121213}, {"country": "SWE", "age": 21, "democracy_importance": 8.714285714285714}, {"country": "SWE", "age": 22, "democracy_importance": 8.73076923076923}, {"country": "SWE", "age": 23, "democracy_importance": 8.421052631578947}, {"country": "SWE", "age": 24, "democracy_importance": 8.565217391304348}, {"country": "SWE", "age": 25, "democracy_importance": 9.666666666666666}, {"country": "SWE", "age": 26, "democracy_importance": 8.76923076923077}, {"country": "SWE", "age": 27, "democracy_importance": 8.941176470588236}, {"country": "SWE", "age": 28, "democracy_importance": 9.08695652173913}, {"country": "SWE", "age": 29, "democracy_importance": 8.76923076923077}, {"country": "SWE", "age": 30, "democracy_importance": 9.31578947368421}, {"country": "SWE", "age": 31, "democracy_importance": 8.153846153846153}, {"country": "SWE", "age": 32, "democracy_importance": 8.333333333333334}, {"country": "SWE", "age": 33, "democracy_importance": 9.9}, {"country": "SWE", "age": 34, "democracy_importance": 9.642857142857142}, {"country": "SWE", "age": 35, "democracy_importance": 9.5}, {"country": "SWE", "age": 36, "democracy_importance": 9.24}, {"country": "SWE", "age": 37, "democracy_importance": 9.0625}, {"country": "SWE", "age": 38, "democracy_importance": 8.823529411764707}, {"country": "SWE", "age": 39, "democracy_importance": 9.923076923076923}, {"country": "SWE", "age": 40, "democracy_importance": 9.333333333333334}, {"country": "SWE", "age": 41, "democracy_importance": 9.666666666666666}, {"country": "SWE", "age": 42, "democracy_importance": 9.571428571428571}, {"country": "SWE", "age": 43, "democracy_importance": 9.4375}, {"country": "SWE", "age": 44, "democracy_importance": 9.347826086956522}, {"country": "SWE", "age": 45, "democracy_importance": 9.576923076923077}, {"country": "SWE", "age": 46, "democracy_importance": 9.789473684210526}, {"country": "SWE", "age": 47, "democracy_importance": 9.31578947368421}, {"country": "SWE", "age": 48, "democracy_importance": 9.375}, {"country": "SWE", "age": 49, "democracy_importance": 9.526315789473685}, {"country": "SWE", "age": 50, "democracy_importance": 9.722222222222221}, {"country": "SWE", "age": 51, "democracy_importance": 9.1875}, {"country": "SWE", "age": 52, "democracy_importance": 9.916666666666666}, {"country": "SWE", "age": 53, "democracy_importance": 9.153846153846153}, {"country": "SWE", "age": 54, "democracy_importance": 9.842105263157896}, {"country": "SWE", "age": 55, "democracy_importance": 9.481481481481481}, {"country": "SWE", "age": 56, "democracy_importance": 9.923076923076923}, {"country": "SWE", "age": 57, "democracy_importance": 9.777777777777779}, {"country": "SWE", "age": 58, "democracy_importance": 9.857142857142858}, {"country": "SWE", "age": 59, "democracy_importance": 9.941176470588236}, {"country": "SWE", "age": 60, "democracy_importance": 9.4375}, {"country": "SWE", "age": 61, "democracy_importance": 9.8125}, {"country": "SWE", "age": 62, "democracy_importance": 9.736842105263158}, {"country": "SWE", "age": 63, "democracy_importance": 9.875}, {"country": "SWE", "age": 64, "democracy_importance": 9.705882352941176}, {"country": "SWE", "age": 65, "democracy_importance": 9.777777777777779}, {"country": "SWE", "age": 66, "democracy_importance": 9.625}, {"country": "SWE", "age": 67, "democracy_importance": 9.62962962962963}, {"country": "SWE", "age": 68, "democracy_importance": 9.941176470588236}, {"country": "SWE", "age": 69, "democracy_importance": 9.583333333333334}, {"country": "SWE", "age": 70, "democracy_importance": 9.4}, {"country": "SWE", "age": 71, "democracy_importance": 9.714285714285714}, {"country": "SWE", "age": 72, "democracy_importance": 9.368421052631579}, {"country": "SWE", "age": 73, "democracy_importance": 9.625}, {"country": "SWE", "age": 74, "democracy_importance": 9.545454545454545}, {"country": "SWE", "age": 75, "democracy_importance": 9.0}, {"country": "SWE", "age": 76, "democracy_importance": 9.666666666666666}, {"country": "SWE", "age": 77, "democracy_importance": 10.0}, {"country": "SWE", "age": 78, "democracy_importance": 9.454545454545455}, {"country": "SWE", "age": 79, "democracy_importance": 9.6}, {"country": "SWE", "age": 80, "democracy_importance": 10.0}, {"country": "SWE", "age": 81, "democracy_importance": 9.8}, {"country": "SWE", "age": 82, "democracy_importance": 9.083333333333334}, {"country": "SWE", "age": 83, "democracy_importance": 10.0}, {"country": "SWE", "age": 84, "democracy_importance": 10.0}, {"country": "SWE", "age": 85, "democracy_importance": 9.5}, {"country": "USA", "age": 18, "democracy_importance": 7.380952380952381}, {"country": "USA", "age": 19, "democracy_importance": 7.794871794871795}, {"country": "USA", "age": 20, "democracy_importance": 6.823529411764706}, {"country": "USA", "age": 21, "democracy_importance": 7.9743589743589745}, {"country": "USA", "age": 22, "democracy_importance": 7.125}, {"country": "USA", "age": 23, "democracy_importance": 7.565217391304348}, {"country": "USA", "age": 24, "democracy_importance": 7.672727272727273}, {"country": "USA", "age": 25, "democracy_importance": 7.456521739130435}, {"country": "USA", "age": 26, "democracy_importance": 7.233333333333333}, {"country": "USA", "age": 27, "democracy_importance": 7.5}, {"country": "USA", "age": 28, "democracy_importance": 7.931034482758621}, {"country": "USA", "age": 29, "democracy_importance": 8.026666666666667}, {"country": "USA", "age": 30, "democracy_importance": 7.846153846153846}, {"country": "USA", "age": 31, "democracy_importance": 7.569444444444445}, {"country": "USA", "age": 32, "democracy_importance": 7.857142857142857}, {"country": "USA", "age": 33, "democracy_importance": 7.683333333333334}, {"country": "USA", "age": 34, "democracy_importance": 8.283018867924529}, {"country": "USA", "age": 35, "democracy_importance": 8.338983050847459}, {"country": "USA", "age": 36, "democracy_importance": 8.0625}, {"country": "USA", "age": 37, "democracy_importance": 8.152173913043478}, {"country": "USA", "age": 38, "democracy_importance": 8.2}, {"country": "USA", "age": 39, "democracy_importance": 7.888888888888889}, {"country": "USA", "age": 40, "democracy_importance": 8.478260869565217}, {"country": "USA", "age": 41, "democracy_importance": 8.454545454545455}, {"country": "USA", "age": 42, "democracy_importance": 8.146341463414634}, {"country": "USA", "age": 43, "democracy_importance": 7.833333333333333}, {"country": "USA", "age": 44, "democracy_importance": 8.176470588235293}, {"country": "USA", "age": 45, "democracy_importance": 8.076923076923077}, {"country": "USA", "age": 46, "democracy_importance": 8.789473684210526}, {"country": "USA", "age": 47, "democracy_importance": 8.680851063829786}, {"country": "USA", "age": 48, "democracy_importance": 8.571428571428571}, {"country": "USA", "age": 49, "democracy_importance": 8.773584905660377}, {"country": "USA", "age": 50, "democracy_importance": 9.029411764705882}, {"country": "USA", "age": 51, "democracy_importance": 8.717948717948717}, {"country": "USA", "age": 52, "democracy_importance": 8.333333333333334}, {"country": "USA", "age": 53, "democracy_importance": 8.882352941176471}, {"country": "USA", "age": 54, "democracy_importance": 8.575757575757576}, {"country": "USA", "age": 55, "democracy_importance": 8.705882352941176}, {"country": "USA", "age": 56, "democracy_importance": 8.475}, {"country": "USA", "age": 57, "democracy_importance": 8.714285714285714}, {"country": "USA", "age": 58, "democracy_importance": 8.866666666666667}, {"country": "USA", "age": 59, "democracy_importance": 9.13888888888889}, {"country": "USA", "age": 60, "democracy_importance": 9.055555555555555}, {"country": "USA", "age": 61, "democracy_importance": 8.717948717948717}, {"country": "USA", "age": 62, "democracy_importance": 9.311111111111112}, {"country": "USA", "age": 63, "democracy_importance": 9.419354838709678}, {"country": "USA", "age": 64, "democracy_importance": 8.9}, {"country": "USA", "age": 65, "democracy_importance": 9.0}, {"country": "USA", "age": 66, "democracy_importance": 8.875}, {"country": "USA", "age": 67, "democracy_importance": 9.703703703703704}, {"country": "USA", "age": 68, "democracy_importance": 9.666666666666666}, {"country": "USA", "age": 69, "democracy_importance": 9.375}, {"country": "USA", "age": 70, "democracy_importance": 8.875}, {"country": "USA", "age": 71, "democracy_importance": 9.714285714285714}, {"country": "USA", "age": 72, "democracy_importance": 9.642857142857142}, {"country": "USA", "age": 73, "democracy_importance": 9.304347826086957}, {"country": "USA", "age": 74, "democracy_importance": 8.764705882352942}, {"country": "USA", "age": 75, "democracy_importance": 8.9}, {"country": "USA", "age": 76, "democracy_importance": 10.0}, {"country": "USA", "age": 77, "democracy_importance": 9.714285714285714}, {"country": "USA", "age": 78, "democracy_importance": 8.555555555555555}, {"country": "USA", "age": 79, "democracy_importance": 10.0}, {"country": "USA", "age": 80, "democracy_importance": 9.555555555555555}, {"country": "USA", "age": 81, "democracy_importance": 9.4}, {"country": "USA", "age": 82, "democracy_importance": 10.0}, {"country": "USA", "age": 83, "democracy_importance": 9.5}, {"country": "USA", "age": 84, "democracy_importance": 10.0}, {"country": "USA", "age": 85, "democracy_importance": 10.0}, {"country": "USA", "age": 86, "democracy_importance": 10.0}, {"country": "USA", "age": 87, "democracy_importance": 10.0}, {"country": "USA", "age": 88, "democracy_importance": 10.0}, {"country": "USA", "age": 89, "democracy_importance": 10.0}, {"country": "USA", "age": 90, "democracy_importance": 10.0}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</section>
+<section id="section-5" class="level1">
+<h1>7</h1>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming df is your DataFrame and contains 'age' and 'democracy_importance' columns</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Example DataFrame creation (replace with your actual data loading code)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'age'</span>: <span class="bu">range</span>(<span class="dv">20</span>, <span class="dv">120</span>),  <span class="co"># Example age range</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'democracy_importance'</span>: np.random.randn(<span class="dv">100</span>).cumsum()  <span class="co"># Simulated 'importance' data</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic scatter plot</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>scatter_chart <span class="op">=</span> alt.Chart(df).mark_point(opacity<span class="op">=</span><span class="fl">0.5</span>).encode(</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'age:Q'</span>, title<span class="op">=</span><span class="st">'Age'</span>),</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">'democracy_importance:Q'</span>, title<span class="op">=</span><span class="st">'Importance of Democracy'</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Age vs. Democracy Importance with LOESS Smoothing"</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding LOESS smoothed line</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>loess_chart <span class="op">=</span> scatter_chart.transform_loess(</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">'age'</span>, <span class="st">'democracy_importance'</span>, bandwidth<span class="op">=</span><span class="fl">0.3</span>  <span class="co"># bandwidth adjusts the smoothness</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>).mark_line(color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the scatter plot and the LOESS line</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>final_chart <span class="op">=</span> scatter_chart <span class="op">+</span> loess_chart</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>final_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+
+<style>
+  #altair-viz-c7c29720172c4451a06be9a7e6631da3.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-c7c29720172c4451a06be9a7e6631da3.vega-embed details,
+  #altair-viz-c7c29720172c4451a06be9a7e6631da3.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-c7c29720172c4451a06be9a7e6631da3"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-c7c29720172c4451a06be9a7e6631da3") {
+      outputDiv = document.getElementById("altair-viz-c7c29720172c4451a06be9a7e6631da3");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "point", "opacity": 0.5}, "encoding": {"x": {"field": "age", "title": "Age", "type": "quantitative"}, "y": {"field": "democracy_importance", "title": "Importance of Democracy", "type": "quantitative"}}, "title": "Age vs. Democracy Importance with LOESS Smoothing"}, {"mark": {"type": "line", "color": "red"}, "encoding": {"x": {"field": "age", "title": "Age", "type": "quantitative"}, "y": {"field": "democracy_importance", "title": "Importance of Democracy", "type": "quantitative"}}, "title": "Age vs. Democracy Importance with LOESS Smoothing", "transform": [{"loess": "democracy_importance", "on": "age", "bandwidth": 0.3}]}], "data": {"name": "data-cef62ad94a85ee3aef779a03947d29e6"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-cef62ad94a85ee3aef779a03947d29e6": [{"age": 20, "democracy_importance": 0.4967141530112327}, {"age": 21, "democracy_importance": 0.358449851840048}, {"age": 22, "democracy_importance": 1.0061383899407406}, {"age": 23, "democracy_importance": 2.5291682463487657}, {"age": 24, "democracy_importance": 2.2950148716254297}, {"age": 25, "democracy_importance": 2.060877914676249}, {"age": 26, "democracy_importance": 3.6400907301836405}, {"age": 27, "democracy_importance": 4.407525459336549}, {"age": 28, "democracy_importance": 3.938051073401597}, {"age": 29, "democracy_importance": 4.4806111169875615}, {"age": 30, "democracy_importance": 4.017193424175099}, {"age": 31, "democracy_importance": 3.5514636706048424}, {"age": 32, "democracy_importance": 3.7934259421708765}, {"age": 33, "democracy_importance": 1.8801456975130786}, {"age": 34, "democracy_importance": 0.15522786500004582}, {"age": 35, "democracy_importance": -0.4070596642409269}, {"age": 36, "democracy_importance": -1.4198907845753506}, {"age": 37, "democracy_importance": -1.1056434519800766}, {"age": 38, "democracy_importance": -2.0136675275012874}, {"age": 39, "democracy_importance": -3.4259712288365787}, {"age": 40, "democracy_importance": -1.9603224599150246}, {"age": 41, "democracy_importance": -2.1860987604015603}, {"age": 42, "democracy_importance": -2.1185705557136365}, {"age": 43, "democracy_importance": -3.5433187419270933}, {"age": 44, "democracy_importance": -4.087701466452276}, {"age": 45, "democracy_importance": -3.9767788767424097}, {"age": 46, "democracy_importance": -5.127772454164712}, {"age": 47, "democracy_importance": -4.75207443581904}, {"age": 48, "democracy_importance": -5.352713125737845}, {"age": 49, "democracy_importance": -5.644406875531121}, {"age": 50, "democracy_importance": -6.2461134877605184}, {"age": 51, "democracy_importance": -4.3938353032515804}, {"age": 52, "democracy_importance": -4.407332527989515}, {"age": 53, "democracy_importance": -5.4650434569454145}, {"age": 54, "democracy_importance": -4.642498544842225}, {"age": 55, "democracy_importance": -5.863342194813248}, {"age": 56, "democracy_importance": -5.654478599808492}, {"age": 57, "democracy_importance": -7.614148723688268}, {"age": 58, "democracy_importance": -8.942334772586698}, {"age": 59, "democracy_importance": -8.745473536717574}, {"age": 60, "democracy_importance": -8.007006956722163}, {"age": 61, "democracy_importance": -7.835638675532193}, {"age": 62, "democracy_importance": -7.951286957920433}, {"age": 63, "democracy_importance": -8.252390653509723}, {"age": 64, "democracy_importance": -9.73091264387715}, {"age": 65, "democracy_importance": -10.450756852271859}, {"age": 66, "democracy_importance": -10.911395623231646}, {"age": 67, "democracy_importance": -9.854273397012731}, {"age": 68, "democracy_importance": -9.51065510744427}, {"age": 69, "democracy_importance": -11.273695262807005}, {"age": 70, "democracy_importance": -10.94961129341221}, {"age": 71, "democracy_importance": -11.334693573828526}, {"age": 72, "democracy_importance": -12.011615574134485}, {"age": 73, "democracy_importance": -11.399939285293616}, {"age": 74, "democracy_importance": -10.368939762797666}, {"age": 75, "democracy_importance": -9.437659643681467}, {"age": 76, "democracy_importance": -10.276877166904105}, {"age": 77, "democracy_importance": -10.58608954275532}, {"age": 78, "democracy_importance": -10.254826111351756}, {"age": 79, "democracy_importance": -9.279280984229397}, {"age": 80, "democracy_importance": -9.758455222074687}, {"age": 81, "democracy_importance": -9.944114198738504}, {"age": 82, "democracy_importance": -11.050449172744532}, {"age": 83, "democracy_importance": -12.246655796825202}, {"age": 84, "democracy_importance": -11.434129974431004}, {"age": 85, "democracy_importance": -10.07788994586018}, {"age": 86, "democracy_importance": -10.149900067440514}, {"age": 87, "democracy_importance": -9.14636716954849}, {"age": 88, "democracy_importance": -8.784731144500856}, {"age": 89, "democracy_importance": -9.42985089910598}, {"age": 90, "democracy_importance": -9.068455293597568}, {"age": 91, "democracy_importance": -7.5304187271315985}, {"age": 92, "democracy_importance": -7.56624476624155}, {"age": 93, "democracy_importance": -6.001601110427544}, {"age": 94, "democracy_importance": -8.621346214517288}, {"age": 95, "democracy_importance": -7.799443710142064}, {"age": 96, "democracy_importance": -7.712396641903893}, {"age": 97, "democracy_importance": -8.011403992369761}, {"age": 98, "democracy_importance": -7.919643215834259}, {"age": 99, "democracy_importance": -9.907212130435152}, {"age": 100, "democracy_importance": -10.126884018272664}, {"age": 101, "democracy_importance": -9.769771446760917}, {"age": 102, "democracy_importance": -8.2918774020194}, {"age": 103, "democracy_importance": -8.810147620293048}, {"age": 104, "democracy_importance": -9.618641223186236}, {"age": 105, "democracy_importance": -10.120398266770772}, {"age": 106, "democracy_importance": -9.204996149068698}, {"age": 107, "democracy_importance": -8.876245039409014}, {"age": 108, "democracy_importance": -9.406005243176052}, {"age": 109, "democracy_importance": -8.892737810062696}, {"age": 110, "democracy_importance": -8.795660260714657}, {"age": 111, "democracy_importance": -7.827015270181768}, {"age": 112, "democracy_importance": -8.529068364059121}, {"age": 113, "democracy_importance": -8.85673051065689}, {"age": 114, "democracy_importance": -9.248838663789048}, {"age": 115, "democracy_importance": -10.712353611921166}, {"age": 116, "democracy_importance": -10.41623333485659}, {"age": 117, "democracy_importance": -10.1551780626767}, {"age": 118, "democracy_importance": -10.15006460603424}, {"age": 119, "democracy_importance": -10.384651739409387}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</section>
+<section id="section-6" class="level1">
+<h1>8</h1>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x <span class="op">-</span> <span class="dv">5</span> <span class="op">+</span> np.random.randn(<span class="bu">len</span>(x))</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'x'</span>: x, <span class="st">'y'</span>: y})</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>scatter_chart <span class="op">=</span> alt.Chart(df).mark_point().encode(</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'x'</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'y'</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear regression line</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>linear_regression <span class="op">=</span> scatter_chart.transform_regression(<span class="st">'x'</span>, <span class="st">'y'</span>, method<span class="op">=</span><span class="st">'linear'</span>).mark_line(color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>linear_chart <span class="op">=</span> scatter_chart <span class="op">+</span> linear_regression</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>linear_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+
+<style>
+  #altair-viz-dc6c973b721b4bdc9a76f2d826603138.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-dc6c973b721b4bdc9a76f2d826603138.vega-embed details,
+  #altair-viz-dc6c973b721b4bdc9a76f2d826603138.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-dc6c973b721b4bdc9a76f2d826603138"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-dc6c973b721b4bdc9a76f2d826603138") {
+      outputDiv = document.getElementById("altair-viz-dc6c973b721b4bdc9a76f2d826603138");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "point"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "red"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}, "transform": [{"on": "x", "regression": "y", "method": "linear"}]}], "data": {"name": "data-376d4890dbd60a3f9503e74a42fb581a"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-376d4890dbd60a3f9503e74a42fb581a": [{"x": 0.0, "y": -4.503285846988767}, {"x": 0.10101010101010101, "y": -5.037254200161083}, {"x": 0.20202020202020202, "y": -4.150291259879105}, {"x": 0.30303030303030304, "y": -3.1739398405616717}, {"x": 0.40404040404040403, "y": -4.830112970682932}, {"x": 0.5050505050505051, "y": -4.7290864518986755}, {"x": 0.6060606060606061, "y": -2.814726578432002}, {"x": 0.7070707070707071, "y": -3.5254945637763844}, {"x": 0.8080808080808081, "y": -4.661393577854144}, {"x": 0.9090909090909091, "y": -3.5483490473231263}, {"x": 1.0101010101010102, "y": -4.453316682711452}, {"x": 1.1111111111111112, "y": -4.354618642459146}, {"x": 1.2121212121212122, "y": -3.545916516312754}, {"x": 1.3131313131313131, "y": -5.600148931526485}, {"x": 1.4141414141414141, "y": -5.310776418371619}, {"x": 1.5151515151515151, "y": -4.047136014089458}, {"x": 1.6161616161616161, "y": -4.396669504172808}, {"x": 1.7171717171717171, "y": -2.968580950233009}, {"x": 1.8181818181818181, "y": -4.089842257339392}, {"x": 1.9191919191919191, "y": -4.493111782143372}, {"x": 2.0202020202020203, "y": -1.5141492108764256}, {"x": 2.121212121212121, "y": -3.1045641792744147}, {"x": 2.2222222222222223, "y": -2.710249573089854}, {"x": 2.323232323232323, "y": -4.101515862981134}, {"x": 2.4242424242424243, "y": -3.1201403002827583}, {"x": 2.525252525252525, "y": -2.3638248850376087}, {"x": 2.6262626262626263, "y": -3.5247309511596763}, {"x": 2.727272727272727, "y": -1.897029254381601}, {"x": 2.8282828282828283, "y": -2.772355861635977}, {"x": 2.929292929292929, "y": -2.3624008205003477}, {"x": 3.0303030303030303, "y": -2.5714035819263668}, {"x": 3.131313131313131, "y": -0.016408684177931177}, {"x": 3.2323232323232323, "y": -1.7811739924147016}, {"x": 3.3333333333333335, "y": -2.724377595622567}, {"x": 3.4343434343434343, "y": -0.7431116535533767}, {"x": 3.5353535353535355, "y": -2.6854901146174868}, {"x": 3.6363636363636362, "y": -1.1547727686316083}, {"x": 3.7373737373737375, "y": -3.222296386506038}, {"x": 3.8383838383838382, "y": -2.4898022105145925}, {"x": 3.9393939393939394, "y": -0.863744824736937}, {"x": 4.040404040404041, "y": -0.2211293796005489}, {"x": 4.141414141414141, "y": -0.6872175773958885}, {"x": 4.242424242424242, "y": -0.8732240399639983}, {"x": 4.343434343434343, "y": -0.9576693521549453}, {"x": 4.444444444444445, "y": -2.0340775459229827}, {"x": 4.545454545454545, "y": -1.1743896629401638}, {"x": 4.646464646464646, "y": -0.8141741244951413}, {"x": 4.747474747474747, "y": 0.8045969736936631}, {"x": 4.848484848484849, "y": 0.19210313805331003}, {"x": 4.94949494949495, "y": -1.8135452058677841}, {"x": 5.05050505050505, "y": 0.37458901989984517}, {"x": 5.151515151515151, "y": -0.23356712890116516}, {"x": 5.252525252525253, "y": -0.42439674778070613}, {"x": 5.353535353535354, "y": 0.9652116423762217}, {"x": 5.454545454545454, "y": 1.485544977041405}, {"x": 5.555555555555555, "y": 1.486835674671754}, {"x": 5.656565656565657, "y": -0.18265186665698196}, {"x": 5.757575757575758, "y": 0.4483633817245432}, {"x": 5.858585858585858, "y": 1.189849289989422}, {"x": 5.959595959595959, "y": 1.9351410867183185}, {"x": 6.0606060606060606, "y": 0.5814318227607707}, {"x": 6.161616161616162, "y": 0.9759571849523446}, {"x": 6.262626262626262, "y": 0.1562912886202339}, {"x": 6.363636363636363, "y": 0.1674297395556925}, {"x": 6.4646464646464645, "y": 2.2771722870406625}, {"x": 6.565656565656566, "y": 2.9218965942273885}, {"x": 6.666666666666667, "y": 1.594656545086333}, {"x": 6.767676767676767, "y": 2.7712096655687914}, {"x": 6.8686868686868685, "y": 2.2303228937345025}, {"x": 6.96969696969697, "y": 1.3245772150918453}, {"x": 7.070707070707071, "y": 2.432102676215485}, {"x": 7.171717171717171, "y": 3.7097537381831405}, {"x": 7.2727272727272725, "y": 2.236901233617321}, {"x": 7.373737373737374, "y": 3.9383810295513797}, {"x": 7.474747474747475, "y": -0.14499762934226945}, {"x": 7.575757575757575, "y": 3.397660080132799}, {"x": 7.6767676767676765, "y": 2.7638147450058477}, {"x": 7.777777777777778, "y": 2.47877042731191}, {"x": 7.878787878787879, "y": 2.9705486553233813}, {"x": 7.979797979797979, "y": 0.9922290651970864}, {"x": 8.080808080808081, "y": 2.8611361929705694}, {"x": 8.181818181818182, "y": 3.538930753329928}, {"x": 8.282828282828282, "y": 4.760722327569798}, {"x": 8.383838383838384, "y": 2.8655681655647367}, {"x": 8.484848484848484, "y": 2.6763548819552967}, {"x": 8.585858585858587, "y": 3.08410154227405}, {"x": 8.686868686868687, "y": 4.602270804570761}, {"x": 8.787878787878787, "y": 4.116629897538472}, {"x": 8.88888888888889, "y": 3.3591286851218505}, {"x": 8.98989898989899, "y": 4.503166423012345}, {"x": 9.09090909090909, "y": 4.18798664025713}, {"x": 9.191919191919192, "y": 5.160564182452081}, {"x": 9.292929292929292, "y": 3.59087619905194}, {"x": 9.393939393939394, "y": 4.066277247341627}, {"x": 9.494949494949495, "y": 4.102841341817337}, {"x": 9.595959595959595, "y": 3.1324446478274766}, {"x": 9.696969696969697, "y": 4.993089974034273}, {"x": 9.797979797979798, "y": 5.059035070159687}, {"x": 9.8989898989899, "y": 4.904103355632361}, {"x": 10.0, "y": 4.765412866624853}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Polynomial regression line</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>polynomial_regression <span class="op">=</span> scatter_chart.transform_regression(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x'</span>, <span class="st">'y'</span>, method<span class="op">=</span><span class="st">'poly'</span>, order<span class="op">=</span><span class="dv">3</span>).mark_line(color<span class="op">=</span><span class="st">'green'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>polynomial_chart <span class="op">=</span> scatter_chart <span class="op">+</span> polynomial_regression</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>polynomial_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
+<style>
+  #altair-viz-96e53fee5c5248869f0a0bd22eb9c063.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-96e53fee5c5248869f0a0bd22eb9c063.vega-embed details,
+  #altair-viz-96e53fee5c5248869f0a0bd22eb9c063.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-96e53fee5c5248869f0a0bd22eb9c063"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-96e53fee5c5248869f0a0bd22eb9c063") {
+      outputDiv = document.getElementById("altair-viz-96e53fee5c5248869f0a0bd22eb9c063");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "point"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "green"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}, "transform": [{"on": "x", "regression": "y", "method": "poly", "order": 3}]}], "data": {"name": "data-376d4890dbd60a3f9503e74a42fb581a"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-376d4890dbd60a3f9503e74a42fb581a": [{"x": 0.0, "y": -4.503285846988767}, {"x": 0.10101010101010101, "y": -5.037254200161083}, {"x": 0.20202020202020202, "y": -4.150291259879105}, {"x": 0.30303030303030304, "y": -3.1739398405616717}, {"x": 0.40404040404040403, "y": -4.830112970682932}, {"x": 0.5050505050505051, "y": -4.7290864518986755}, {"x": 0.6060606060606061, "y": -2.814726578432002}, {"x": 0.7070707070707071, "y": -3.5254945637763844}, {"x": 0.8080808080808081, "y": -4.661393577854144}, {"x": 0.9090909090909091, "y": -3.5483490473231263}, {"x": 1.0101010101010102, "y": -4.453316682711452}, {"x": 1.1111111111111112, "y": -4.354618642459146}, {"x": 1.2121212121212122, "y": -3.545916516312754}, {"x": 1.3131313131313131, "y": -5.600148931526485}, {"x": 1.4141414141414141, "y": -5.310776418371619}, {"x": 1.5151515151515151, "y": -4.047136014089458}, {"x": 1.6161616161616161, "y": -4.396669504172808}, {"x": 1.7171717171717171, "y": -2.968580950233009}, {"x": 1.8181818181818181, "y": -4.089842257339392}, {"x": 1.9191919191919191, "y": -4.493111782143372}, {"x": 2.0202020202020203, "y": -1.5141492108764256}, {"x": 2.121212121212121, "y": -3.1045641792744147}, {"x": 2.2222222222222223, "y": -2.710249573089854}, {"x": 2.323232323232323, "y": -4.101515862981134}, {"x": 2.4242424242424243, "y": -3.1201403002827583}, {"x": 2.525252525252525, "y": -2.3638248850376087}, {"x": 2.6262626262626263, "y": -3.5247309511596763}, {"x": 2.727272727272727, "y": -1.897029254381601}, {"x": 2.8282828282828283, "y": -2.772355861635977}, {"x": 2.929292929292929, "y": -2.3624008205003477}, {"x": 3.0303030303030303, "y": -2.5714035819263668}, {"x": 3.131313131313131, "y": -0.016408684177931177}, {"x": 3.2323232323232323, "y": -1.7811739924147016}, {"x": 3.3333333333333335, "y": -2.724377595622567}, {"x": 3.4343434343434343, "y": -0.7431116535533767}, {"x": 3.5353535353535355, "y": -2.6854901146174868}, {"x": 3.6363636363636362, "y": -1.1547727686316083}, {"x": 3.7373737373737375, "y": -3.222296386506038}, {"x": 3.8383838383838382, "y": -2.4898022105145925}, {"x": 3.9393939393939394, "y": -0.863744824736937}, {"x": 4.040404040404041, "y": -0.2211293796005489}, {"x": 4.141414141414141, "y": -0.6872175773958885}, {"x": 4.242424242424242, "y": -0.8732240399639983}, {"x": 4.343434343434343, "y": -0.9576693521549453}, {"x": 4.444444444444445, "y": -2.0340775459229827}, {"x": 4.545454545454545, "y": -1.1743896629401638}, {"x": 4.646464646464646, "y": -0.8141741244951413}, {"x": 4.747474747474747, "y": 0.8045969736936631}, {"x": 4.848484848484849, "y": 0.19210313805331003}, {"x": 4.94949494949495, "y": -1.8135452058677841}, {"x": 5.05050505050505, "y": 0.37458901989984517}, {"x": 5.151515151515151, "y": -0.23356712890116516}, {"x": 5.252525252525253, "y": -0.42439674778070613}, {"x": 5.353535353535354, "y": 0.9652116423762217}, {"x": 5.454545454545454, "y": 1.485544977041405}, {"x": 5.555555555555555, "y": 1.486835674671754}, {"x": 5.656565656565657, "y": -0.18265186665698196}, {"x": 5.757575757575758, "y": 0.4483633817245432}, {"x": 5.858585858585858, "y": 1.189849289989422}, {"x": 5.959595959595959, "y": 1.9351410867183185}, {"x": 6.0606060606060606, "y": 0.5814318227607707}, {"x": 6.161616161616162, "y": 0.9759571849523446}, {"x": 6.262626262626262, "y": 0.1562912886202339}, {"x": 6.363636363636363, "y": 0.1674297395556925}, {"x": 6.4646464646464645, "y": 2.2771722870406625}, {"x": 6.565656565656566, "y": 2.9218965942273885}, {"x": 6.666666666666667, "y": 1.594656545086333}, {"x": 6.767676767676767, "y": 2.7712096655687914}, {"x": 6.8686868686868685, "y": 2.2303228937345025}, {"x": 6.96969696969697, "y": 1.3245772150918453}, {"x": 7.070707070707071, "y": 2.432102676215485}, {"x": 7.171717171717171, "y": 3.7097537381831405}, {"x": 7.2727272727272725, "y": 2.236901233617321}, {"x": 7.373737373737374, "y": 3.9383810295513797}, {"x": 7.474747474747475, "y": -0.14499762934226945}, {"x": 7.575757575757575, "y": 3.397660080132799}, {"x": 7.6767676767676765, "y": 2.7638147450058477}, {"x": 7.777777777777778, "y": 2.47877042731191}, {"x": 7.878787878787879, "y": 2.9705486553233813}, {"x": 7.979797979797979, "y": 0.9922290651970864}, {"x": 8.080808080808081, "y": 2.8611361929705694}, {"x": 8.181818181818182, "y": 3.538930753329928}, {"x": 8.282828282828282, "y": 4.760722327569798}, {"x": 8.383838383838384, "y": 2.8655681655647367}, {"x": 8.484848484848484, "y": 2.6763548819552967}, {"x": 8.585858585858587, "y": 3.08410154227405}, {"x": 8.686868686868687, "y": 4.602270804570761}, {"x": 8.787878787878787, "y": 4.116629897538472}, {"x": 8.88888888888889, "y": 3.3591286851218505}, {"x": 8.98989898989899, "y": 4.503166423012345}, {"x": 9.09090909090909, "y": 4.18798664025713}, {"x": 9.191919191919192, "y": 5.160564182452081}, {"x": 9.292929292929292, "y": 3.59087619905194}, {"x": 9.393939393939394, "y": 4.066277247341627}, {"x": 9.494949494949495, "y": 4.102841341817337}, {"x": 9.595959595959595, "y": 3.1324446478274766}, {"x": 9.696969696969697, "y": 4.993089974034273}, {"x": 9.797979797979798, "y": 5.059035070159687}, {"x": 9.8989898989899, "y": 4.904103355632361}, {"x": 10.0, "y": 4.765412866624853}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

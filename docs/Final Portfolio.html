@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="John Ju">
+
+<title>Final Portfolio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Final Portfolio_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Final Portfolio_files/libs/quarto-html/quarto.js"></script>
+<script src="Final Portfolio_files/libs/quarto-html/popper.min.js"></script>
+<script src="Final Portfolio_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Final Portfolio_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Final Portfolio_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Final Portfolio_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Final Portfolio_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Final Portfolio_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Final Portfolio_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Final Portfolio</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>John Ju </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="hw-3-revision." class="level1">
+<h1>HW 3 revision.</h1>
+</section>
+<section id="a." class="level1">
+<h1>a.</h1>
+<p>I like Ryan Klein’s visualization “Comparing Twins.” He effectively used bar charts to compare the genetic share percentages from three different testing kits for various pairs of twins. It ensures clarity through clear color coding and consistent data ordering. The title provides a clear introduction to the data.</p>
+</section>
+<section id="b." class="level1">
+<h1>b.</h1>
+<p>I don’t particularly like John’s visualization “Comparing Kits” because it lacks a prominent title. Additionally, the overlapping points in the scatter plot make the data unclear.</p>
+</section>
+<section id="c" class="level1">
+<h1>c</h1>
+</section>
+<section id="testing-twins" class="level1">
+<h1>Testing Twins</h1>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data_url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/John-Ju199/Final/main/docs/Final-Hw3-twins.json'</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_json(data_url)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(data).mark_bar().encode(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'region:N'</span>, title<span class="op">=</span><span class="st">'Region'</span>),  </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">'genetic share:Q'</span>, title<span class="op">=</span><span class="st">'Genetic Share'</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>alt.Color(<span class="st">'twin:N'</span>, title<span class="op">=</span><span class="st">'Twin'</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span>alt.Column(<span class="st">'twin:N'</span>, title<span class="op">=</span><span class="st">'Testing Twins'</span>),  </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[alt.Tooltip(<span class="st">'region:N'</span>, title<span class="op">=</span><span class="st">'Region'</span>),  <span class="co"># Or 'kit:N'</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>             alt.Tooltip(<span class="st">'genetic share:Q'</span>, title<span class="op">=</span><span class="st">'Genetic Share'</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>             alt.Tooltip(<span class="st">'twin:N'</span>, title<span class="op">=</span><span class="st">'Twin'</span>)]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">100</span>,  </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">250</span>  </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>chart.display() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+  #altair-viz-5099cced8f0a4d4fb9685bd8b0e249d1.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-5099cced8f0a4d4fb9685bd8b0e249d1.vega-embed details,
+  #altair-viz-5099cced8f0a4d4fb9685bd8b0e249d1.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-5099cced8f0a4d4fb9685bd8b0e249d1"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-5099cced8f0a4d4fb9685bd8b0e249d1") {
+      outputDiv = document.getElementById("altair-viz-5099cced8f0a4d4fb9685bd8b0e249d1");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-d326f59fb055d02b60a6ba4fbce8a5a1"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "twin", "title": "Twin", "type": "nominal"}, "column": {"field": "twin", "title": "Testing Twins", "type": "nominal"}, "tooltip": [{"field": "region", "title": "Region", "type": "nominal"}, {"field": "genetic share", "title": "Genetic Share", "type": "quantitative"}, {"field": "twin", "title": "Twin", "type": "nominal"}], "x": {"field": "region", "title": "Region", "type": "nominal"}, "y": {"field": "genetic share", "title": "Genetic Share", "type": "quantitative"}}, "height": 250, "width": 100, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-d326f59fb055d02b60a6ba4fbce8a5a1": [{"twin": "1A", "pair": 1, "id": "A", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.9}, {"twin": "1A", "pair": 1, "id": "A", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.676}, {"twin": "1A", "pair": 1, "id": "A", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.647}, {"twin": "1A", "pair": 1, "id": "A", "region": "SE Europe", "kit": "Ancestry", "genetic share": 0.1}, {"twin": "1A", "pair": 1, "id": "A", "region": "SE Europe", "kit": "23andMe", "genetic share": 0.32}, {"twin": "1A", "pair": 1, "id": "A", "region": "SE Europe", "kit": "MyHeritage", "genetic share": 0.333}, {"twin": "1B", "pair": 1, "id": "B", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.9}, {"twin": "1B", "pair": 1, "id": "B", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.6910000000000001}, {"twin": "1B", "pair": 1, "id": "B", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.687}, {"twin": "1B", "pair": 1, "id": "B", "region": "SE Europe", "kit": "Ancestry", "genetic share": 0.1}, {"twin": "1B", "pair": 1, "id": "B", "region": "SE Europe", "kit": "23andMe", "genetic share": 0.305}, {"twin": "1B", "pair": 1, "id": "B", "region": "SE Europe", "kit": "MyHeritage", "genetic share": 0.23900000000000002}, {"twin": "2A", "pair": 2, "id": "A", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.65}, {"twin": "2A", "pair": 2, "id": "A", "region": "West Africa", "kit": "23andMe", "genetic share": 0.762}, {"twin": "2A", "pair": 2, "id": "A", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.6960000000000001}, {"twin": "2A", "pair": 2, "id": "A", "region": "Central Africa", "kit": "Ancestry", "genetic share": 0.22}, {"twin": "2A", "pair": 2, "id": "A", "region": "Central Africa", "kit": "23andMe", "genetic share": 0.076}, {"twin": "2A", "pair": 2, "id": "A", "region": "Central Africa", "kit": "MyHeritage", "genetic share": 0.12}, {"twin": "2A", "pair": 2, "id": "A", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.12}, {"twin": "2A", "pair": 2, "id": "A", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.139}, {"twin": "2A", "pair": 2, "id": "A", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.10400000000000001}, {"twin": "2A", "pair": 2, "id": "A", "region": "SE Europe", "kit": "Ancestry", "genetic share": 0.01}, {"twin": "2A", "pair": 2, "id": "A", "region": "SE Europe", "kit": "23andMe", "genetic share": 0.006}, {"twin": "2A", "pair": 2, "id": "A", "region": "SE Europe", "kit": "MyHeritage", "genetic share": 0.0}, {"twin": "2B", "pair": 2, "id": "B", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.64}, {"twin": "2B", "pair": 2, "id": "B", "region": "West Africa", "kit": "23andMe", "genetic share": 0.76}, {"twin": "2B", "pair": 2, "id": "B", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.6880000000000001}, {"twin": "2B", "pair": 2, "id": "B", "region": "Central Africa", "kit": "Ancestry", "genetic share": 0.23}, {"twin": "2B", "pair": 2, "id": "B", "region": "Central Africa", "kit": "23andMe", "genetic share": 0.078}, {"twin": "2B", "pair": 2, "id": "B", "region": "Central Africa", "kit": "MyHeritage", "genetic share": 0.112}, {"twin": "2B", "pair": 2, "id": "B", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.12}, {"twin": "2B", "pair": 2, "id": "B", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.131}, {"twin": "2B", "pair": 2, "id": "B", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.106}, {"twin": "2B", "pair": 2, "id": "B", "region": "SE Europe", "kit": "Ancestry", "genetic share": 0.01}, {"twin": "2B", "pair": 2, "id": "B", "region": "SE Europe", "kit": "23andMe", "genetic share": 0.006}, {"twin": "2B", "pair": 2, "id": "B", "region": "SE Europe", "kit": "MyHeritage", "genetic share": 0.0}, {"twin": "3A", "pair": 3, "id": "A", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.99}, {"twin": "3A", "pair": 3, "id": "A", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.987}, {"twin": "3A", "pair": 3, "id": "A", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.992}, {"twin": "3A", "pair": 3, "id": "A", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.01}, {"twin": "3A", "pair": 3, "id": "A", "region": "West Africa", "kit": "23andMe", "genetic share": 0.07}, {"twin": "3A", "pair": 3, "id": "A", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.0}, {"twin": "3B", "pair": 3, "id": "B", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.99}, {"twin": "3B", "pair": 3, "id": "B", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.987}, {"twin": "3B", "pair": 3, "id": "B", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.981}, {"twin": "3B", "pair": 3, "id": "B", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.01}, {"twin": "3B", "pair": 3, "id": "B", "region": "West Africa", "kit": "23andMe", "genetic share": 0.01}, {"twin": "3B", "pair": 3, "id": "B", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.0}, {"twin": "4A", "pair": 4, "id": "A", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.6000000000000001}, {"twin": "4A", "pair": 4, "id": "A", "region": "West Africa", "kit": "23andMe", "genetic share": 0.772}, {"twin": "4A", "pair": 4, "id": "A", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.6920000000000001}, {"twin": "4A", "pair": 4, "id": "A", "region": "Central Africa", "kit": "Ancestry", "genetic share": 0.27}, {"twin": "4A", "pair": 4, "id": "A", "region": "Central Africa", "kit": "23andMe", "genetic share": 0.076}, {"twin": "4A", "pair": 4, "id": "A", "region": "Central Africa", "kit": "MyHeritage", "genetic share": 0.076}, {"twin": "4A", "pair": 4, "id": "A", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.12}, {"twin": "4A", "pair": 4, "id": "A", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.125}, {"twin": "4A", "pair": 4, "id": "A", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.092}, {"twin": "4B", "pair": 4, "id": "B", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.6000000000000001}, {"twin": "4B", "pair": 4, "id": "B", "region": "West Africa", "kit": "23andMe", "genetic share": 0.768}, {"twin": "4B", "pair": 4, "id": "B", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.707}, {"twin": "4B", "pair": 4, "id": "B", "region": "Central Africa", "kit": "Ancestry", "genetic share": 0.27}, {"twin": "4B", "pair": 4, "id": "B", "region": "Central Africa", "kit": "23andMe", "genetic share": 0.08}, {"twin": "4B", "pair": 4, "id": "B", "region": "Central Africa", "kit": "MyHeritage", "genetic share": 0.068}, {"twin": "4B", "pair": 4, "id": "B", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.12}, {"twin": "4B", "pair": 4, "id": "B", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.115}, {"twin": "4B", "pair": 4, "id": "B", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.088}, {"twin": "4B", "pair": 4, "id": "B", "region": "East Asia", "kit": "Ancestry", "genetic share": 0.01}, {"twin": "4B", "pair": 4, "id": "B", "region": "East Asia", "kit": "23andMe", "genetic share": 0.017}, {"twin": "4B", "pair": 4, "id": "B", "region": "East Asia", "kit": "MyHeritage", "genetic share": 0.0}, {"twin": "4B", "pair": 4, "id": "B", "region": "SE Europe", "kit": "Ancestry", "genetic share": 0.0}, {"twin": "4B", "pair": 4, "id": "B", "region": "SE Europe", "kit": "23andMe", "genetic share": 0.009000000000000001}, {"twin": "4B", "pair": 4, "id": "B", "region": "SE Europe", "kit": "MyHeritage", "genetic share": 0.094}, {"twin": "5A", "pair": 5, "id": "A", "region": "East Asia", "kit": "Ancestry", "genetic share": 1.0}, {"twin": "5A", "pair": 5, "id": "A", "region": "East Asia", "kit": "23andMe", "genetic share": 1.0}, {"twin": "5A", "pair": 5, "id": "A", "region": "East Asia", "kit": "MyHeritage", "genetic share": 0.978}, {"twin": "5B", "pair": 5, "id": "B", "region": "East Asia", "kit": "Ancestry", "genetic share": 1.0}, {"twin": "5B", "pair": 5, "id": "B", "region": "East Asia", "kit": "23andMe", "genetic share": 1.0}, {"twin": "5B", "pair": 5, "id": "B", "region": "East Asia", "kit": "MyHeritage", "genetic share": 0.973}, {"twin": "6A", "pair": 6, "id": "A", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.62}, {"twin": "6A", "pair": 6, "id": "A", "region": "West Africa", "kit": "23andMe", "genetic share": 0.636}, {"twin": "6A", "pair": 6, "id": "A", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.61}, {"twin": "6A", "pair": 6, "id": "A", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.23}, {"twin": "6A", "pair": 6, "id": "A", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.245}, {"twin": "6A", "pair": 6, "id": "A", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.251}, {"twin": "6A", "pair": 6, "id": "A", "region": "Central Africa", "kit": "Ancestry", "genetic share": 0.12}, {"twin": "6A", "pair": 6, "id": "A", "region": "Central Africa", "kit": "23andMe", "genetic share": 0.1}, {"twin": "6A", "pair": 6, "id": "A", "region": "Central Africa", "kit": "MyHeritage", "genetic share": 0.11}, {"twin": "6A", "pair": 6, "id": "A", "region": "East Asia", "kit": "Ancestry", "genetic share": 0.01}, {"twin": "6A", "pair": 6, "id": "A", "region": "East Asia", "kit": "23andMe", "genetic share": 0.006}, {"twin": "6A", "pair": 6, "id": "A", "region": "East Asia", "kit": "MyHeritage", "genetic share": 0.0}, {"twin": "6B", "pair": 6, "id": "B", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.62}, {"twin": "6B", "pair": 6, "id": "B", "region": "West Africa", "kit": "23andMe", "genetic share": 0.634}, {"twin": "6B", "pair": 6, "id": "B", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.624}, {"twin": "6B", "pair": 6, "id": "B", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.23}, {"twin": "6B", "pair": 6, "id": "B", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.247}, {"twin": "6B", "pair": 6, "id": "B", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.25}, {"twin": "6B", "pair": 6, "id": "B", "region": "Central Africa", "kit": "Ancestry", "genetic share": 0.13}, {"twin": "6B", "pair": 6, "id": "B", "region": "Central Africa", "kit": "23andMe", "genetic share": 0.1}, {"twin": "6B", "pair": 6, "id": "B", "region": "Central Africa", "kit": "MyHeritage", "genetic share": 0.089}, {"twin": "6B", "pair": 6, "id": "B", "region": "East Asia", "kit": "Ancestry", "genetic share": 0.01}, {"twin": "6B", "pair": 6, "id": "B", "region": "East Asia", "kit": "23andMe", "genetic share": 0.006}, {"twin": "6B", "pair": 6, "id": "B", "region": "East Asia", "kit": "MyHeritage", "genetic share": 0.0}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</section>
+<section id="testing-kit" class="level1">
+<h1>Testing Kit</h1>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>data_url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/John-Ju199/Final/main/docs/Final-Hw3-twins.json'</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_json(data_url)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>facet_chart <span class="op">=</span> alt.Chart(data).mark_bar().encode(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'region:N'</span>, title<span class="op">=</span><span class="st">'Region'</span>),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">'genetic share:Q'</span>, title<span class="op">=</span><span class="st">'Genetic Share'</span>),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>alt.Color(<span class="st">'region:N'</span>, legend<span class="op">=</span>alt.Legend(title<span class="op">=</span><span class="st">'Region'</span>)),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[alt.Tooltip(<span class="st">'region:N'</span>, title<span class="op">=</span><span class="st">'Region'</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>             alt.Tooltip(<span class="st">'genetic share:Q'</span>, title<span class="op">=</span><span class="st">'Genetic Share'</span>),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>             alt.Tooltip(<span class="st">'kit:N'</span>, title<span class="op">=</span><span class="st">'Testing Kit'</span>)]</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">150</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">150</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>).facet(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    facet<span class="op">=</span>alt.Facet(<span class="st">'kit:N'</span>, title<span class="op">=</span><span class="st">'Testing Kit'</span>),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="dv">3</span>  </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>).resolve_scale(</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'independent'</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'independent'</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>facet_chart.display()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+  #altair-viz-02d94d32ccea4c388091e0e5bf329804.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-02d94d32ccea4c388091e0e5bf329804.vega-embed details,
+  #altair-viz-02d94d32ccea4c388091e0e5bf329804.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-02d94d32ccea4c388091e0e5bf329804"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-02d94d32ccea4c388091e0e5bf329804") {
+      outputDiv = document.getElementById("altair-viz-02d94d32ccea4c388091e0e5bf329804");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-d326f59fb055d02b60a6ba4fbce8a5a1"}, "facet": {"field": "kit", "title": "Testing Kit", "type": "nominal"}, "spec": {"mark": {"type": "bar"}, "encoding": {"color": {"field": "region", "legend": {"title": "Region"}, "type": "nominal"}, "tooltip": [{"field": "region", "title": "Region", "type": "nominal"}, {"field": "genetic share", "title": "Genetic Share", "type": "quantitative"}, {"field": "kit", "title": "Testing Kit", "type": "nominal"}], "x": {"field": "region", "title": "Region", "type": "nominal"}, "y": {"field": "genetic share", "title": "Genetic Share", "type": "quantitative"}}, "height": 150, "width": 150}, "columns": 3, "resolve": {"scale": {"x": "independent", "y": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-d326f59fb055d02b60a6ba4fbce8a5a1": [{"twin": "1A", "pair": 1, "id": "A", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.9}, {"twin": "1A", "pair": 1, "id": "A", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.676}, {"twin": "1A", "pair": 1, "id": "A", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.647}, {"twin": "1A", "pair": 1, "id": "A", "region": "SE Europe", "kit": "Ancestry", "genetic share": 0.1}, {"twin": "1A", "pair": 1, "id": "A", "region": "SE Europe", "kit": "23andMe", "genetic share": 0.32}, {"twin": "1A", "pair": 1, "id": "A", "region": "SE Europe", "kit": "MyHeritage", "genetic share": 0.333}, {"twin": "1B", "pair": 1, "id": "B", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.9}, {"twin": "1B", "pair": 1, "id": "B", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.6910000000000001}, {"twin": "1B", "pair": 1, "id": "B", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.687}, {"twin": "1B", "pair": 1, "id": "B", "region": "SE Europe", "kit": "Ancestry", "genetic share": 0.1}, {"twin": "1B", "pair": 1, "id": "B", "region": "SE Europe", "kit": "23andMe", "genetic share": 0.305}, {"twin": "1B", "pair": 1, "id": "B", "region": "SE Europe", "kit": "MyHeritage", "genetic share": 0.23900000000000002}, {"twin": "2A", "pair": 2, "id": "A", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.65}, {"twin": "2A", "pair": 2, "id": "A", "region": "West Africa", "kit": "23andMe", "genetic share": 0.762}, {"twin": "2A", "pair": 2, "id": "A", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.6960000000000001}, {"twin": "2A", "pair": 2, "id": "A", "region": "Central Africa", "kit": "Ancestry", "genetic share": 0.22}, {"twin": "2A", "pair": 2, "id": "A", "region": "Central Africa", "kit": "23andMe", "genetic share": 0.076}, {"twin": "2A", "pair": 2, "id": "A", "region": "Central Africa", "kit": "MyHeritage", "genetic share": 0.12}, {"twin": "2A", "pair": 2, "id": "A", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.12}, {"twin": "2A", "pair": 2, "id": "A", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.139}, {"twin": "2A", "pair": 2, "id": "A", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.10400000000000001}, {"twin": "2A", "pair": 2, "id": "A", "region": "SE Europe", "kit": "Ancestry", "genetic share": 0.01}, {"twin": "2A", "pair": 2, "id": "A", "region": "SE Europe", "kit": "23andMe", "genetic share": 0.006}, {"twin": "2A", "pair": 2, "id": "A", "region": "SE Europe", "kit": "MyHeritage", "genetic share": 0.0}, {"twin": "2B", "pair": 2, "id": "B", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.64}, {"twin": "2B", "pair": 2, "id": "B", "region": "West Africa", "kit": "23andMe", "genetic share": 0.76}, {"twin": "2B", "pair": 2, "id": "B", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.6880000000000001}, {"twin": "2B", "pair": 2, "id": "B", "region": "Central Africa", "kit": "Ancestry", "genetic share": 0.23}, {"twin": "2B", "pair": 2, "id": "B", "region": "Central Africa", "kit": "23andMe", "genetic share": 0.078}, {"twin": "2B", "pair": 2, "id": "B", "region": "Central Africa", "kit": "MyHeritage", "genetic share": 0.112}, {"twin": "2B", "pair": 2, "id": "B", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.12}, {"twin": "2B", "pair": 2, "id": "B", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.131}, {"twin": "2B", "pair": 2, "id": "B", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.106}, {"twin": "2B", "pair": 2, "id": "B", "region": "SE Europe", "kit": "Ancestry", "genetic share": 0.01}, {"twin": "2B", "pair": 2, "id": "B", "region": "SE Europe", "kit": "23andMe", "genetic share": 0.006}, {"twin": "2B", "pair": 2, "id": "B", "region": "SE Europe", "kit": "MyHeritage", "genetic share": 0.0}, {"twin": "3A", "pair": 3, "id": "A", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.99}, {"twin": "3A", "pair": 3, "id": "A", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.987}, {"twin": "3A", "pair": 3, "id": "A", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.992}, {"twin": "3A", "pair": 3, "id": "A", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.01}, {"twin": "3A", "pair": 3, "id": "A", "region": "West Africa", "kit": "23andMe", "genetic share": 0.07}, {"twin": "3A", "pair": 3, "id": "A", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.0}, {"twin": "3B", "pair": 3, "id": "B", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.99}, {"twin": "3B", "pair": 3, "id": "B", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.987}, {"twin": "3B", "pair": 3, "id": "B", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.981}, {"twin": "3B", "pair": 3, "id": "B", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.01}, {"twin": "3B", "pair": 3, "id": "B", "region": "West Africa", "kit": "23andMe", "genetic share": 0.01}, {"twin": "3B", "pair": 3, "id": "B", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.0}, {"twin": "4A", "pair": 4, "id": "A", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.6000000000000001}, {"twin": "4A", "pair": 4, "id": "A", "region": "West Africa", "kit": "23andMe", "genetic share": 0.772}, {"twin": "4A", "pair": 4, "id": "A", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.6920000000000001}, {"twin": "4A", "pair": 4, "id": "A", "region": "Central Africa", "kit": "Ancestry", "genetic share": 0.27}, {"twin": "4A", "pair": 4, "id": "A", "region": "Central Africa", "kit": "23andMe", "genetic share": 0.076}, {"twin": "4A", "pair": 4, "id": "A", "region": "Central Africa", "kit": "MyHeritage", "genetic share": 0.076}, {"twin": "4A", "pair": 4, "id": "A", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.12}, {"twin": "4A", "pair": 4, "id": "A", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.125}, {"twin": "4A", "pair": 4, "id": "A", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.092}, {"twin": "4B", "pair": 4, "id": "B", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.6000000000000001}, {"twin": "4B", "pair": 4, "id": "B", "region": "West Africa", "kit": "23andMe", "genetic share": 0.768}, {"twin": "4B", "pair": 4, "id": "B", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.707}, {"twin": "4B", "pair": 4, "id": "B", "region": "Central Africa", "kit": "Ancestry", "genetic share": 0.27}, {"twin": "4B", "pair": 4, "id": "B", "region": "Central Africa", "kit": "23andMe", "genetic share": 0.08}, {"twin": "4B", "pair": 4, "id": "B", "region": "Central Africa", "kit": "MyHeritage", "genetic share": 0.068}, {"twin": "4B", "pair": 4, "id": "B", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.12}, {"twin": "4B", "pair": 4, "id": "B", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.115}, {"twin": "4B", "pair": 4, "id": "B", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.088}, {"twin": "4B", "pair": 4, "id": "B", "region": "East Asia", "kit": "Ancestry", "genetic share": 0.01}, {"twin": "4B", "pair": 4, "id": "B", "region": "East Asia", "kit": "23andMe", "genetic share": 0.017}, {"twin": "4B", "pair": 4, "id": "B", "region": "East Asia", "kit": "MyHeritage", "genetic share": 0.0}, {"twin": "4B", "pair": 4, "id": "B", "region": "SE Europe", "kit": "Ancestry", "genetic share": 0.0}, {"twin": "4B", "pair": 4, "id": "B", "region": "SE Europe", "kit": "23andMe", "genetic share": 0.009000000000000001}, {"twin": "4B", "pair": 4, "id": "B", "region": "SE Europe", "kit": "MyHeritage", "genetic share": 0.094}, {"twin": "5A", "pair": 5, "id": "A", "region": "East Asia", "kit": "Ancestry", "genetic share": 1.0}, {"twin": "5A", "pair": 5, "id": "A", "region": "East Asia", "kit": "23andMe", "genetic share": 1.0}, {"twin": "5A", "pair": 5, "id": "A", "region": "East Asia", "kit": "MyHeritage", "genetic share": 0.978}, {"twin": "5B", "pair": 5, "id": "B", "region": "East Asia", "kit": "Ancestry", "genetic share": 1.0}, {"twin": "5B", "pair": 5, "id": "B", "region": "East Asia", "kit": "23andMe", "genetic share": 1.0}, {"twin": "5B", "pair": 5, "id": "B", "region": "East Asia", "kit": "MyHeritage", "genetic share": 0.973}, {"twin": "6A", "pair": 6, "id": "A", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.62}, {"twin": "6A", "pair": 6, "id": "A", "region": "West Africa", "kit": "23andMe", "genetic share": 0.636}, {"twin": "6A", "pair": 6, "id": "A", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.61}, {"twin": "6A", "pair": 6, "id": "A", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.23}, {"twin": "6A", "pair": 6, "id": "A", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.245}, {"twin": "6A", "pair": 6, "id": "A", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.251}, {"twin": "6A", "pair": 6, "id": "A", "region": "Central Africa", "kit": "Ancestry", "genetic share": 0.12}, {"twin": "6A", "pair": 6, "id": "A", "region": "Central Africa", "kit": "23andMe", "genetic share": 0.1}, {"twin": "6A", "pair": 6, "id": "A", "region": "Central Africa", "kit": "MyHeritage", "genetic share": 0.11}, {"twin": "6A", "pair": 6, "id": "A", "region": "East Asia", "kit": "Ancestry", "genetic share": 0.01}, {"twin": "6A", "pair": 6, "id": "A", "region": "East Asia", "kit": "23andMe", "genetic share": 0.006}, {"twin": "6A", "pair": 6, "id": "A", "region": "East Asia", "kit": "MyHeritage", "genetic share": 0.0}, {"twin": "6B", "pair": 6, "id": "B", "region": "West Africa", "kit": "Ancestry", "genetic share": 0.62}, {"twin": "6B", "pair": 6, "id": "B", "region": "West Africa", "kit": "23andMe", "genetic share": 0.634}, {"twin": "6B", "pair": 6, "id": "B", "region": "West Africa", "kit": "MyHeritage", "genetic share": 0.624}, {"twin": "6B", "pair": 6, "id": "B", "region": "NW Europe", "kit": "Ancestry", "genetic share": 0.23}, {"twin": "6B", "pair": 6, "id": "B", "region": "NW Europe", "kit": "23andMe", "genetic share": 0.247}, {"twin": "6B", "pair": 6, "id": "B", "region": "NW Europe", "kit": "MyHeritage", "genetic share": 0.25}, {"twin": "6B", "pair": 6, "id": "B", "region": "Central Africa", "kit": "Ancestry", "genetic share": 0.13}, {"twin": "6B", "pair": 6, "id": "B", "region": "Central Africa", "kit": "23andMe", "genetic share": 0.1}, {"twin": "6B", "pair": 6, "id": "B", "region": "Central Africa", "kit": "MyHeritage", "genetic share": 0.089}, {"twin": "6B", "pair": 6, "id": "B", "region": "East Asia", "kit": "Ancestry", "genetic share": 0.01}, {"twin": "6B", "pair": 6, "id": "B", "region": "East Asia", "kit": "23andMe", "genetic share": 0.006}, {"twin": "6B", "pair": 6, "id": "B", "region": "East Asia", "kit": "MyHeritage", "genetic share": 0.0}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</section>
+<section id="d" class="level1">
+<h1>d</h1>
+<p>These two visualizations depict the comparison of genetic share percentages among twins from different regions using various testing kits. The first visualization utilizes a faceted bar chart, where each facet represents a different testing kit. Within each facet, bars represent the genetic share percentages across different regions. This layout allows for easy comparison of genetic shares across both regions and testing kits. Additionally, hovering over the bars provides specific information about the region, genetic share percentage, and testing kit, enhancing clarity and interpretability. On the other hand, the second visualization presents a bar chart with columns representing individual twins and color encoding for each twin pair. The bars show the genetic share percentages for each region, facilitating a comparison between twins within the same testing scenario. The inclusion of hover functionality further enhances the visibility of data specifics, aiding in a deeper understanding of the genetic share distribution among twins.</p>
+</section>
+<section id="hw-7-revision." class="level1">
+<h1>HW 7 revision.</h1>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>data_url <span class="op">=</span> <span class="st">'https://calvin-data304.netlify.app/data/swd-lets-practice-ex-5-03.csv'</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(data_url, parse_dates<span class="op">=</span>[<span class="st">'Date'</span>])</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>data.head()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>data_melted <span class="op">=</span> data.melt(id_vars<span class="op">=</span><span class="st">'Date'</span>, var_name<span class="op">=</span><span class="st">'Method'</span>, value_name<span class="op">=</span><span class="st">'Touchpoints'</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>line_chart <span class="op">=</span> alt.Chart(data_melted).mark_line(point<span class="op">=</span><span class="va">True</span>).encode(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Date:T'</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'Touchpoints:Q'</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'Method:N'</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">'Date:T'</span>, <span class="st">'Method:N'</span>, <span class="st">'Touchpoints:Q'</span>]</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>).interactive().properties(</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">'Customer Touchpoints Over Time'</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the chart in a Jupyter Notebook or JupyterLab</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>line_chart.display() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+  #altair-viz-aa7695fcaba0401caae46ea81add7881.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-aa7695fcaba0401caae46ea81add7881.vega-embed details,
+  #altair-viz-aa7695fcaba0401caae46ea81add7881.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-aa7695fcaba0401caae46ea81add7881"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-aa7695fcaba0401caae46ea81add7881") {
+      outputDiv = document.getElementById("altair-viz-aa7695fcaba0401caae46ea81add7881");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-fa3405c576a42a5d4c8876d89d393739"}, "mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "Method", "type": "nominal"}, "tooltip": [{"field": "Date", "type": "temporal"}, {"field": "Method", "type": "nominal"}, {"field": "Touchpoints", "type": "quantitative"}], "x": {"field": "Date", "type": "temporal"}, "y": {"field": "Touchpoints", "type": "quantitative"}}, "params": [{"name": "param_1", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales"}], "title": "Customer Touchpoints Over Time", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-fa3405c576a42a5d4c8876d89d393739": [{"Date": "2018-01-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.43}, {"Date": "2018-02-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.35}, {"Date": "2018-03-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.34}, {"Date": "2018-04-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.24}, {"Date": "2018-05-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.23}, {"Date": "2018-06-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.29}, {"Date": "2018-07-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.28}, {"Date": "2018-08-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.3}, {"Date": "2018-09-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.3}, {"Date": "2018-10-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.29}, {"Date": "2018-11-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.29}, {"Date": "2018-12-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.38}, {"Date": "2019-01-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.45}, {"Date": "2019-02-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.32}, {"Date": "2019-03-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.31}, {"Date": "2019-04-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.25}, {"Date": "2019-05-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.26}, {"Date": "2019-06-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.26}, {"Date": "2019-07-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.25}, {"Date": "2019-08-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.28}, {"Date": "2019-09-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.24}, {"Date": "2019-10-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.24}, {"Date": "2019-11-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.25}, {"Date": "2019-12-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.33}, {"Date": "2020-01-01T00:00:00", "Method": "Phone Touchpoints", "Touchpoints": 0.34}, {"Date": "2018-01-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.13}, {"Date": "2018-02-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.11}, {"Date": "2018-03-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.11}, {"Date": "2018-04-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.18}, {"Date": "2018-05-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.17}, {"Date": "2018-06-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.17}, {"Date": "2018-07-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.14}, {"Date": "2018-08-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.14}, {"Date": "2018-09-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.11}, {"Date": "2018-10-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.12}, {"Date": "2018-11-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.11}, {"Date": "2018-12-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.15}, {"Date": "2019-01-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.16}, {"Date": "2019-02-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.13}, {"Date": "2019-03-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.13}, {"Date": "2019-04-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.15}, {"Date": "2019-05-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.2}, {"Date": "2019-06-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.2}, {"Date": "2019-07-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.15}, {"Date": "2019-08-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.16}, {"Date": "2019-09-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.17}, {"Date": "2019-10-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.17}, {"Date": "2019-11-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.18}, {"Date": "2019-12-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.18}, {"Date": "2020-01-01T00:00:00", "Method": "Chat Touchpoints", "Touchpoints": 0.26}, {"Date": "2018-01-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.55}, {"Date": "2018-02-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.38}, {"Date": "2018-03-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.38}, {"Date": "2018-04-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.3}, {"Date": "2018-05-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.28}, {"Date": "2018-06-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.29}, {"Date": "2018-07-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.3}, {"Date": "2018-08-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.35}, {"Date": "2018-09-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.32}, {"Date": "2018-10-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.31}, {"Date": "2018-11-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.41}, {"Date": "2018-12-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.54}, {"Date": "2019-01-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.58}, {"Date": "2019-02-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.38}, {"Date": "2019-03-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.38}, {"Date": "2019-04-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.34}, {"Date": "2019-05-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.34}, {"Date": "2019-06-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.34}, {"Date": "2019-07-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.34}, {"Date": "2019-08-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.33}, {"Date": "2019-09-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.32}, {"Date": "2019-10-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.34}, {"Date": "2019-11-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.36}, {"Date": "2019-12-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.53}, {"Date": "2020-01-01T00:00:00", "Method": "Email Touchpoints", "Touchpoints": 0.5}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+<p>This is a trend chart of various Touchpoints over time.</p>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset from the URL</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>data_url <span class="op">=</span> <span class="st">'https://calvin-data304.netlify.app/data/swd-lets-practice-ex-5-03.csv'</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(data_url)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the 'Date' column to datetime and sort the DataFrame by date</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Date'</span>] <span class="op">=</span> pd.to_datetime(data[<span class="st">'Date'</span>])</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.sort_values(<span class="st">'Date'</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the total touchpoints for each month</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Total Touchpoints'</span>] <span class="op">=</span> data[[<span class="st">'Phone Touchpoints'</span>, <span class="st">'Chat Touchpoints'</span>, <span class="st">'Email Touchpoints'</span>]].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the growth percentage using the first month as the baseline</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>baseline_value <span class="op">=</span> data[<span class="st">'Total Touchpoints'</span>].iloc[<span class="dv">0</span>]</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Growth Percentage'</span>] <span class="op">=</span> ((data[<span class="st">'Total Touchpoints'</span>] <span class="op">-</span> baseline_value) <span class="op">/</span> baseline_value) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the line chart</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>growth_chart <span class="op">=</span> alt.Chart(data).mark_line(point<span class="op">=</span><span class="va">True</span>).encode(</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'Date:T'</span>, axis<span class="op">=</span>alt.Axis(title<span class="op">=</span><span class="st">'Month'</span>)),</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">'Growth Percentage:Q'</span>, axis<span class="op">=</span>alt.Axis(title<span class="op">=</span><span class="st">'Growth Percentage Relative to Jan 2018 (%)'</span>)),</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">'Date:T'</span>, <span class="st">'Growth Percentage:Q'</span>]</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">'Monthly Growth Percentage of Total Customer Touchpoints Since Jan 2018'</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the chart in your local Jupyter notebook or save it as an HTML file</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>growth_chart.display()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+  #altair-viz-8928069d675e43f7a254750a634d311a.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-8928069d675e43f7a254750a634d311a.vega-embed details,
+  #altair-viz-8928069d675e43f7a254750a634d311a.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-8928069d675e43f7a254750a634d311a"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-8928069d675e43f7a254750a634d311a") {
+      outputDiv = document.getElementById("altair-viz-8928069d675e43f7a254750a634d311a");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-ea06f5c79cb5bb42a7c2ba52b7c46696"}, "mark": {"type": "line", "point": true}, "encoding": {"tooltip": [{"field": "Date", "type": "temporal"}, {"field": "Growth Percentage", "type": "quantitative"}], "x": {"axis": {"title": "Month"}, "field": "Date", "type": "temporal"}, "y": {"axis": {"title": "Growth Percentage Relative to Jan 2018 (%)"}, "field": "Growth Percentage", "type": "quantitative"}}, "title": "Monthly Growth Percentage of Total Customer Touchpoints Since Jan 2018", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-ea06f5c79cb5bb42a7c2ba52b7c46696": [{"Date": "2018-01-01T00:00:00", "Phone Touchpoints": 0.43, "Chat Touchpoints": 0.13, "Email Touchpoints": 0.55, "Total Touchpoints": 1.11, "Growth Percentage": 0.0}, {"Date": "2018-02-01T00:00:00", "Phone Touchpoints": 0.35, "Chat Touchpoints": 0.11, "Email Touchpoints": 0.38, "Total Touchpoints": 0.84, "Growth Percentage": -24.324324324324333}, {"Date": "2018-03-01T00:00:00", "Phone Touchpoints": 0.34, "Chat Touchpoints": 0.11, "Email Touchpoints": 0.38, "Total Touchpoints": 0.8300000000000001, "Growth Percentage": -25.225225225225223}, {"Date": "2018-04-01T00:00:00", "Phone Touchpoints": 0.24, "Chat Touchpoints": 0.18, "Email Touchpoints": 0.3, "Total Touchpoints": 0.72, "Growth Percentage": -35.135135135135144}, {"Date": "2018-05-01T00:00:00", "Phone Touchpoints": 0.23, "Chat Touchpoints": 0.17, "Email Touchpoints": 0.28, "Total Touchpoints": 0.68, "Growth Percentage": -38.73873873873874}, {"Date": "2018-06-01T00:00:00", "Phone Touchpoints": 0.29, "Chat Touchpoints": 0.17, "Email Touchpoints": 0.29, "Total Touchpoints": 0.75, "Growth Percentage": -32.43243243243244}, {"Date": "2018-07-01T00:00:00", "Phone Touchpoints": 0.28, "Chat Touchpoints": 0.14, "Email Touchpoints": 0.3, "Total Touchpoints": 0.72, "Growth Percentage": -35.135135135135144}, {"Date": "2018-08-01T00:00:00", "Phone Touchpoints": 0.3, "Chat Touchpoints": 0.14, "Email Touchpoints": 0.35, "Total Touchpoints": 0.79, "Growth Percentage": -28.828828828828833}, {"Date": "2018-09-01T00:00:00", "Phone Touchpoints": 0.3, "Chat Touchpoints": 0.11, "Email Touchpoints": 0.32, "Total Touchpoints": 0.73, "Growth Percentage": -34.234234234234236}, {"Date": "2018-10-01T00:00:00", "Phone Touchpoints": 0.29, "Chat Touchpoints": 0.12, "Email Touchpoints": 0.31, "Total Touchpoints": 0.72, "Growth Percentage": -35.135135135135144}, {"Date": "2018-11-01T00:00:00", "Phone Touchpoints": 0.29, "Chat Touchpoints": 0.11, "Email Touchpoints": 0.41, "Total Touchpoints": 0.8099999999999999, "Growth Percentage": -27.02702702702704}, {"Date": "2018-12-01T00:00:00", "Phone Touchpoints": 0.38, "Chat Touchpoints": 0.15, "Email Touchpoints": 0.54, "Total Touchpoints": 1.07, "Growth Percentage": -3.6036036036036063}, {"Date": "2019-01-01T00:00:00", "Phone Touchpoints": 0.45, "Chat Touchpoints": 0.16, "Email Touchpoints": 0.58, "Total Touchpoints": 1.19, "Growth Percentage": 7.207207207207193}, {"Date": "2019-02-01T00:00:00", "Phone Touchpoints": 0.32, "Chat Touchpoints": 0.13, "Email Touchpoints": 0.38, "Total Touchpoints": 0.8300000000000001, "Growth Percentage": -25.225225225225223}, {"Date": "2019-03-01T00:00:00", "Phone Touchpoints": 0.31, "Chat Touchpoints": 0.13, "Email Touchpoints": 0.38, "Total Touchpoints": 0.8200000000000001, "Growth Percentage": -26.126126126126124}, {"Date": "2019-04-01T00:00:00", "Phone Touchpoints": 0.25, "Chat Touchpoints": 0.15, "Email Touchpoints": 0.34, "Total Touchpoints": 0.74, "Growth Percentage": -33.33333333333334}, {"Date": "2019-05-01T00:00:00", "Phone Touchpoints": 0.26, "Chat Touchpoints": 0.2, "Email Touchpoints": 0.34, "Total Touchpoints": 0.8, "Growth Percentage": -27.927927927927932}, {"Date": "2019-06-01T00:00:00", "Phone Touchpoints": 0.26, "Chat Touchpoints": 0.2, "Email Touchpoints": 0.34, "Total Touchpoints": 0.8, "Growth Percentage": -27.927927927927932}, {"Date": "2019-07-01T00:00:00", "Phone Touchpoints": 0.25, "Chat Touchpoints": 0.15, "Email Touchpoints": 0.34, "Total Touchpoints": 0.74, "Growth Percentage": -33.33333333333334}, {"Date": "2019-08-01T00:00:00", "Phone Touchpoints": 0.28, "Chat Touchpoints": 0.16, "Email Touchpoints": 0.33, "Total Touchpoints": 0.77, "Growth Percentage": -30.630630630630634}, {"Date": "2019-09-01T00:00:00", "Phone Touchpoints": 0.24, "Chat Touchpoints": 0.17, "Email Touchpoints": 0.32, "Total Touchpoints": 0.73, "Growth Percentage": -34.234234234234236}, {"Date": "2019-10-01T00:00:00", "Phone Touchpoints": 0.24, "Chat Touchpoints": 0.17, "Email Touchpoints": 0.34, "Total Touchpoints": 0.75, "Growth Percentage": -32.43243243243244}, {"Date": "2019-11-01T00:00:00", "Phone Touchpoints": 0.25, "Chat Touchpoints": 0.18, "Email Touchpoints": 0.36, "Total Touchpoints": 0.79, "Growth Percentage": -28.828828828828833}, {"Date": "2019-12-01T00:00:00", "Phone Touchpoints": 0.33, "Chat Touchpoints": 0.18, "Email Touchpoints": 0.53, "Total Touchpoints": 1.04, "Growth Percentage": -6.306306306306311}, {"Date": "2020-01-01T00:00:00", "Phone Touchpoints": 0.34, "Chat Touchpoints": 0.26, "Email Touchpoints": 0.5, "Total Touchpoints": 1.1, "Growth Percentage": -0.9009009009009016}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+<p>This is the percentage growth rate of the total number of Touchpoints over time based on January 2018. This chart can more clearly see the specific numerical changes over time, as well as the growth and decline trends of the data in different months.</p>
+</section>
+<section id="section" class="level1">
+<h1>3</h1>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>data_url <span class="op">=</span> <span class="st">'https://john-ju199.github.io/DATA-304/tanzania_dhs_data.csv'</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(data_url)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># This assumes that the start year is sufficient to represent the survey period</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Survey_Start_Year'</span>] <span class="op">=</span> pd.to_datetime(data[<span class="st">'DHS Survey Year'</span>].<span class="bu">str</span>[:<span class="dv">4</span>])</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Melting the dataframe to have a long format</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>data_long <span class="op">=</span> data.melt(id_vars<span class="op">=</span>[<span class="st">'DHS Survey Year'</span>, <span class="st">'Survey_Start_Year'</span>], </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                      value_vars<span class="op">=</span>[<span class="st">'Total Fertility Rate, All Women Ages 15-49'</span>, </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">'Current Use of a Modern Method of Contraception-All Women (%)'</span>, </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">'Unmet Need for Family Planning-All Women (%)'</span>],</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                      var_name<span class="op">=</span><span class="st">'Indicator'</span>, value_name<span class="op">=</span><span class="st">'Value'</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(data_long).mark_line(point<span class="op">=</span><span class="va">True</span>).encode(</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'Survey_Start_Year:T'</span>, title<span class="op">=</span><span class="st">'Survey Year'</span>),</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">'Value:Q'</span>, title<span class="op">=</span><span class="st">'Indicator Value'</span>),</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>alt.Color(<span class="st">'Indicator:N'</span>, legend<span class="op">=</span>alt.Legend(title<span class="op">=</span><span class="st">"Indicators"</span>)),</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">'DHS Survey Year'</span>, <span class="st">'Indicator'</span>, <span class="st">'Value:N'</span>]</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Trends in Fertility Rate, Contraception Use, and Unmet Family Planning Needs in Tanzania"</span>,</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">600</span>,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">400</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+
+<style>
+  #altair-viz-fe18dd65188948c7909c2d6fe15d7135.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-fe18dd65188948c7909c2d6fe15d7135.vega-embed details,
+  #altair-viz-fe18dd65188948c7909c2d6fe15d7135.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-fe18dd65188948c7909c2d6fe15d7135"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-fe18dd65188948c7909c2d6fe15d7135") {
+      outputDiv = document.getElementById("altair-viz-fe18dd65188948c7909c2d6fe15d7135");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-5de4549e8dba589e7317f6e3c81e165f"}, "mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "Indicator", "legend": {"title": "Indicators"}, "type": "nominal"}, "tooltip": [{"field": "DHS Survey Year", "type": "nominal"}, {"field": "Indicator", "type": "nominal"}, {"field": "Value", "type": "nominal"}], "x": {"field": "Survey_Start_Year", "title": "Survey Year", "type": "temporal"}, "y": {"field": "Value", "title": "Indicator Value", "type": "quantitative"}}, "height": 400, "title": "Trends in Fertility Rate, Contraception Use, and Unmet Family Planning Needs in Tanzania", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-5de4549e8dba589e7317f6e3c81e165f": [{"DHS Survey Year": "2015-2016", "Survey_Start_Year": "2015-01-01T00:00:00", "Indicator": "Total Fertility Rate, All Women Ages 15-49", "Value": 5.2}, {"DHS Survey Year": "2010", "Survey_Start_Year": "2010-01-01T00:00:00", "Indicator": "Total Fertility Rate, All Women Ages 15-49", "Value": 5.4}, {"DHS Survey Year": "2004-2005", "Survey_Start_Year": "2004-01-01T00:00:00", "Indicator": "Total Fertility Rate, All Women Ages 15-49", "Value": 5.7}, {"DHS Survey Year": "1999", "Survey_Start_Year": "1999-01-01T00:00:00", "Indicator": "Total Fertility Rate, All Women Ages 15-49", "Value": 5.6}, {"DHS Survey Year": "1996", "Survey_Start_Year": "1996-01-01T00:00:00", "Indicator": "Total Fertility Rate, All Women Ages 15-49", "Value": 5.8}, {"DHS Survey Year": "1991-1992", "Survey_Start_Year": "1991-01-01T00:00:00", "Indicator": "Total Fertility Rate, All Women Ages 15-49", "Value": 6.2}, {"DHS Survey Year": "2015-2016", "Survey_Start_Year": "2015-01-01T00:00:00", "Indicator": "Current Use of a Modern Method of Contraception-All Women (%)", "Value": 38.4}, {"DHS Survey Year": "2010", "Survey_Start_Year": "2010-01-01T00:00:00", "Indicator": "Current Use of a Modern Method of Contraception-All Women (%)", "Value": 23.6}, {"DHS Survey Year": "2004-2005", "Survey_Start_Year": "2004-01-01T00:00:00", "Indicator": "Current Use of a Modern Method of Contraception-All Women (%)", "Value": 17.6}, {"DHS Survey Year": "1999", "Survey_Start_Year": "1999-01-01T00:00:00", "Indicator": "Current Use of a Modern Method of Contraception-All Women (%)", "Value": 15.6}, {"DHS Survey Year": "1996", "Survey_Start_Year": "1996-01-01T00:00:00", "Indicator": "Current Use of a Modern Method of Contraception-All Women (%)", "Value": 11.7}, {"DHS Survey Year": "1991-1992", "Survey_Start_Year": "1991-01-01T00:00:00", "Indicator": "Current Use of a Modern Method of Contraception-All Women (%)", "Value": 5.9}, {"DHS Survey Year": "2015-2016", "Survey_Start_Year": "2015-01-01T00:00:00", "Indicator": "Unmet Need for Family Planning-All Women (%)", "Value": 22.1}, {"DHS Survey Year": "2010", "Survey_Start_Year": "2010-01-01T00:00:00", "Indicator": "Unmet Need for Family Planning-All Women (%)", "Value": 22.3}, {"DHS Survey Year": "2004-2005", "Survey_Start_Year": "2004-01-01T00:00:00", "Indicator": "Unmet Need for Family Planning-All Women (%)", "Value": 24.3}, {"DHS Survey Year": "1999", "Survey_Start_Year": "1999-01-01T00:00:00", "Indicator": "Unmet Need for Family Planning-All Women (%)", "Value": 22.3}, {"DHS Survey Year": "1996", "Survey_Start_Year": "1996-01-01T00:00:00", "Indicator": "Unmet Need for Family Planning-All Women (%)", "Value": 26.0}, {"DHS Survey Year": "1991-1992", "Survey_Start_Year": "1991-01-01T00:00:00", "Indicator": "Unmet Need for Family Planning-All Women (%)", "Value": 27.8}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+<p>A single, comprehensive chart using long-format data concisely presents the interrelated trends of fertility rates, contraceptive adoption, and family planning needs. Enhanced by a color-coded legend and datetime conversion for survey years, this visualization facilitates easy comparison and underscores the significant progress and persisting challenges in satisfying the family planning demands of Tanzanian women.</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>data_url <span class="op">=</span> <span class="st">'https://john-ju199.github.io/DATA-304/tanzania_dhs_data.csv'</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(data_url)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to calculate the datetime representation of the survey's midpoint year</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_datetime_midpoint(year_string):</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'-'</span> <span class="kw">in</span> year_string:</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        start_year, end_year <span class="op">=</span> year_string.split(<span class="st">'-'</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        midpoint_year <span class="op">=</span> <span class="bu">int</span>(start_year) <span class="op">+</span> (<span class="bu">int</span>(end_year) <span class="op">-</span> <span class="bu">int</span>(start_year)) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        midpoint_year <span class="op">=</span> <span class="bu">int</span>(year_string)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return the January 1st of the closest integer year to the midpoint</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.to_datetime(<span class="ss">f'</span><span class="sc">{</span><span class="bu">int</span>(midpoint_year)<span class="sc">}</span><span class="ss">-01-01'</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the function to calculate the datetime midpoint</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Survey_Date'</span>] <span class="op">=</span> data[<span class="st">'DHS Survey Year'</span>].<span class="bu">apply</span>(calculate_datetime_midpoint)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Define base chart with common encodings</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> alt.Chart(data).encode(</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    alt.X(<span class="st">'Survey_Date:T'</span>, title<span class="op">=</span><span class="st">'Survey Year'</span>)  <span class="co"># Use the datetime field for the x-axis</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Define individual charts for each metric</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>fertility_chart <span class="op">=</span> base.mark_line(point<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'blue'</span>).encode(</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    alt.Y(<span class="st">'Total Fertility Rate, All Women Ages 15-49:Q'</span>, title<span class="op">=</span><span class="st">'Total Fertility Rate (15-49)'</span>),</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">'DHS Survey Year'</span>, <span class="st">'Total Fertility Rate, All Women Ages 15-49'</span>]</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">'Total Fertility Rate over Survey Years'</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>contraception_chart <span class="op">=</span> base.mark_line(point<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'green'</span>).encode(</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    alt.Y(<span class="st">'Current Use of a Modern Method of Contraception-All Women (%):Q'</span>, title<span class="op">=</span><span class="st">'Contraception Use (%)'</span>),</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">'DHS Survey Year'</span>, <span class="st">'Current Use of a Modern Method of Contraception-All Women (%)'</span>]</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">'Contraception Use over Survey Years'</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>unmet_need_chart <span class="op">=</span> base.mark_line(point<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'red'</span>).encode(</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    alt.Y(<span class="st">'Unmet Need for Family Planning-All Women (%):Q'</span>, title<span class="op">=</span><span class="st">'Unmet Need for Family Planning (%)'</span>),</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">'DHS Survey Year'</span>, <span class="st">'Unmet Need for Family Planning-All Women (%)'</span>]</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">'Unmet Need for Family Planning over Survey Years'</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the charts vertically with shared x-axis scales</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>combined_chart <span class="op">=</span> alt.vconcat(fertility_chart, contraception_chart, unmet_need_chart).resolve_scale(</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'shared'</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Trends in Fertility Rate, Contraception Use, and Unmet Family Planning Needs in Tanzania"</span></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>combined_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+
+<style>
+  #altair-viz-9ba65947985a449d82b9077cd56ae87d.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-9ba65947985a449d82b9077cd56ae87d.vega-embed details,
+  #altair-viz-9ba65947985a449d82b9077cd56ae87d.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-9ba65947985a449d82b9077cd56ae87d"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-9ba65947985a449d82b9077cd56ae87d") {
+      outputDiv = document.getElementById("altair-viz-9ba65947985a449d82b9077cd56ae87d");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "vconcat": [{"mark": {"type": "line", "color": "blue", "point": true}, "encoding": {"tooltip": [{"field": "DHS Survey Year", "type": "nominal"}, {"field": "Total Fertility Rate, All Women Ages 15-49", "type": "quantitative"}], "x": {"field": "Survey_Date", "title": "Survey Year", "type": "temporal"}, "y": {"field": "Total Fertility Rate, All Women Ages 15-49", "title": "Total Fertility Rate (15-49)", "type": "quantitative"}}, "title": "Total Fertility Rate over Survey Years"}, {"mark": {"type": "line", "color": "green", "point": true}, "encoding": {"tooltip": [{"field": "DHS Survey Year", "type": "nominal"}, {"field": "Current Use of a Modern Method of Contraception-All Women (%)", "type": "quantitative"}], "x": {"field": "Survey_Date", "title": "Survey Year", "type": "temporal"}, "y": {"field": "Current Use of a Modern Method of Contraception-All Women (%)", "title": "Contraception Use (%)", "type": "quantitative"}}, "title": "Contraception Use over Survey Years"}, {"mark": {"type": "line", "color": "red", "point": true}, "encoding": {"tooltip": [{"field": "DHS Survey Year", "type": "nominal"}, {"field": "Unmet Need for Family Planning-All Women (%)", "type": "quantitative"}], "x": {"field": "Survey_Date", "title": "Survey Year", "type": "temporal"}, "y": {"field": "Unmet Need for Family Planning-All Women (%)", "title": "Unmet Need for Family Planning (%)", "type": "quantitative"}}, "title": "Unmet Need for Family Planning over Survey Years"}], "data": {"name": "data-49db8010b1af43231da8106cd33a944c"}, "resolve": {"scale": {"x": "shared"}}, "title": "Trends in Fertility Rate, Contraception Use, and Unmet Family Planning Needs in Tanzania", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-49db8010b1af43231da8106cd33a944c": [{"DHS Survey Year": "2015-2016", "Total Fertility Rate, All Women Ages 15-49": 5.2, "Current Use of a Modern Method of Contraception-All Women (%)": 38.4, "Unmet Need for Family Planning-All Women (%)": 22.1, "Survey_Date": "2015-01-01T00:00:00"}, {"DHS Survey Year": "2010", "Total Fertility Rate, All Women Ages 15-49": 5.4, "Current Use of a Modern Method of Contraception-All Women (%)": 23.6, "Unmet Need for Family Planning-All Women (%)": 22.3, "Survey_Date": "2010-01-01T00:00:00"}, {"DHS Survey Year": "2004-2005", "Total Fertility Rate, All Women Ages 15-49": 5.7, "Current Use of a Modern Method of Contraception-All Women (%)": 17.6, "Unmet Need for Family Planning-All Women (%)": 24.3, "Survey_Date": "2004-01-01T00:00:00"}, {"DHS Survey Year": "1999", "Total Fertility Rate, All Women Ages 15-49": 5.6, "Current Use of a Modern Method of Contraception-All Women (%)": 15.6, "Unmet Need for Family Planning-All Women (%)": 22.3, "Survey_Date": "1999-01-01T00:00:00"}, {"DHS Survey Year": "1996", "Total Fertility Rate, All Women Ages 15-49": 5.8, "Current Use of a Modern Method of Contraception-All Women (%)": 11.7, "Unmet Need for Family Planning-All Women (%)": 26.0, "Survey_Date": "1996-01-01T00:00:00"}, {"DHS Survey Year": "1991-1992", "Total Fertility Rate, All Women Ages 15-49": 6.2, "Current Use of a Modern Method of Contraception-All Women (%)": 5.9, "Unmet Need for Family Planning-All Women (%)": 27.8, "Survey_Date": "1991-01-01T00:00:00"}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+<p>The three vertically concatenated charts effectively highlight Tanzania’s changing fertility rates, contraceptive usage, and family planning needs from 1991 to 2016. With each chart focusing on a specific aspect—showing declining fertility, increased contraceptive use, and variable unmet needs—this visualization provides valuable insights for policymakers, health workers, and leaders to address Tanzanian women’s reproductive health and family planning concerns.</p>
+</section>
+<section id="section-1" class="level1">
+<h1>4</h1>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>data_url <span class="op">=</span> <span class="st">'https://www.ncei.noaa.gov/data/global-marine/doc/Marine_CSV_sample.csv'</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(data_url)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert 'Time of Observation' to datetime</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Time of Observation'</span>] <span class="op">=</span> pd.to_datetime(data[<span class="st">'Time of Observation'</span>])</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to categorize time of day</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> categorize_time_of_day(hour):</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="dv">6</span> <span class="op">&lt;=</span> hour <span class="op">&lt;</span> <span class="dv">12</span>:</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Morning'</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="dv">12</span> <span class="op">&lt;=</span> hour <span class="op">&lt;</span> <span class="dv">18</span>:</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Afternoon'</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="dv">18</span> <span class="op">&lt;=</span> hour <span class="op">&lt;</span> <span class="dv">24</span>:</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Evening'</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Night'</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the function to the 'Time of Observation' column to create 'Time of Day'</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Time of Day'</span>] <span class="op">=</span> data[<span class="st">'Time of Observation'</span>].dt.hour.<span class="bu">apply</span>(categorize_time_of_day)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a slider for selecting wind speed range</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>wind_speed_slider <span class="op">=</span> alt.binding_range(<span class="bu">min</span><span class="op">=</span>data[<span class="st">'Wind Speed'</span>].<span class="bu">min</span>(), <span class="bu">max</span><span class="op">=</span>data[<span class="st">'Wind Speed'</span>].<span class="bu">max</span>(), step<span class="op">=</span><span class="dv">1</span>, name<span class="op">=</span><span class="st">'Wind Speed: '</span>)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>slider_selection <span class="op">=</span> alt.selection_single(bind<span class="op">=</span>wind_speed_slider, fields<span class="op">=</span>[<span class="st">'Wind Speed'</span>], name<span class="op">=</span><span class="st">"Selector"</span>)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Enhance the chart by varying point sizes based on 'Sea Level Pressure' and adjusting other aesthetic elements</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co"># and add the slider for interactive wind speed filtering</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(data).mark_point().encode(</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Longitude:Q'</span>,</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'Latitude:Q'</span>,</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'Wind Speed:Q'</span>,</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span><span class="st">'Sea Level Pressure:Q'</span>,</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">'Identification'</span>, <span class="st">'Time of Observation'</span>, <span class="st">'Wind Speed'</span>, <span class="st">'Sea Level Pressure'</span>]</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>).add_selection(</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    slider_selection</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    slider_selection</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">250</span>,</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">250</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>).facet(</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>    facet<span class="op">=</span><span class="st">'Time of Day:N'</span>,</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>).interactive()</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the title</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> chart.properties(</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Marine Observations Throughout the Day: Dynamics of Wind Speed and Sea Level Pressure"</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/export/anaconda/lib/python3.11/site-packages/altair/utils/deprecation.py:65: AltairDeprecationWarning:
+
+'selection_single' is deprecated.  Use 'selection_point'
+
+/export/anaconda/lib/python3.11/site-packages/altair/utils/deprecation.py:65: AltairDeprecationWarning:
+
+'add_selection' is deprecated. Use 'add_params' instead.
+</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+
+<style>
+  #altair-viz-1b6382e876054398a66229c54f00a3ed.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-1b6382e876054398a66229c54f00a3ed.vega-embed details,
+  #altair-viz-1b6382e876054398a66229c54f00a3ed.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-1b6382e876054398a66229c54f00a3ed"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-1b6382e876054398a66229c54f00a3ed") {
+      outputDiv = document.getElementById("altair-viz-1b6382e876054398a66229c54f00a3ed");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-63ce7a9dcc12b493ecf8ed21812b3664"}, "facet": {"field": "Time of Day", "type": "nominal"}, "spec": {"mark": {"type": "point"}, "encoding": {"color": {"field": "Wind Speed", "type": "quantitative"}, "size": {"field": "Sea Level Pressure", "type": "quantitative"}, "tooltip": [{"field": "Identification", "type": "nominal"}, {"field": "Time of Observation", "type": "temporal"}, {"field": "Wind Speed", "type": "quantitative"}, {"field": "Sea Level Pressure", "type": "nominal"}], "x": {"field": "Longitude", "type": "quantitative"}, "y": {"field": "Latitude", "type": "quantitative"}}, "height": 250, "name": "view_1", "transform": [{"filter": {"param": "Selector"}}], "width": 250}, "columns": 2, "params": [{"name": "Selector", "select": {"type": "point", "fields": ["Wind Speed"]}, "bind": {"input": "range", "max": 463, "min": 10, "name": "Wind Speed: ", "step": 1}, "views": ["view_1"]}, {"name": "param_2", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales", "views": ["view_1"]}], "title": "Marine Observations Throughout the Day: Dynamics of Wind Speed and Sea Level Pressure", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-63ce7a9dcc12b493ecf8ed21812b3664": [{"Identification": "D5GN6", "Latitude": -35.8, "Longitude": 2.9, "Time of Observation": "2015-01-12T00:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.83", "Characteristics of Pressure Tendency": "8", "Pressure Tendency": "0.0", "Air Temperature": "70.5", "Wet Bulb Temperature": " ", "Dew Point Temperature": "65.5", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "7", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "5", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "2", "Wind Direction": 300, "Wind Speed": 139, "Time of Day": "Night"}, {"Identification": "D5GN6", "Latitude": -35.9, "Longitude": 6.9, "Time of Observation": "2015-01-12T12:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.93", "Characteristics of Pressure Tendency": "1", "Pressure Tendency": "0.0", "Air Temperature": "66.2", "Wet Bulb Temperature": " ", "Dew Point Temperature": "56.1", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 9", "Wave Height": "10", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "8", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "2", "Middle Cloud Type": "1", "High Cloud Type": "A", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "2", "Wind Direction": 180, "Wind Speed": 165, "Time of Day": "Afternoon"}, {"Identification": "D5GN6", "Latitude": -35.9, "Longitude": 8.6, "Time of Observation": "2015-01-12T18:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "30.02", "Characteristics of Pressure Tendency": "1", "Pressure Tendency": "0.0", "Air Temperature": "61.2", "Wet Bulb Temperature": " ", "Dew Point Temperature": "48.9", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 7", "Wave Height": " 7", "Swell Direction": "24", "Swell Period": "12", "Swell Height": " 8", "Total Cloud Amount": "8", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "2", "Middle Cloud Type": "0", "High Cloud Type": "0", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "2", "Wind Direction": 170, "Wind Speed": 154, "Time of Day": "Evening"}, {"Identification": "D5GN6", "Latitude": -35.7, "Longitude": 11.9, "Time of Observation": "2015-01-13T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "30.14", "Characteristics of Pressure Tendency": "0", "Pressure Tendency": "0.0", "Air Temperature": "64.6", "Wet Bulb Temperature": " ", "Dew Point Temperature": "45.0", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 8", "Wave Height": " 7", "Swell Direction": "22", "Swell Period": " 9", "Swell Height": " 8", "Total Cloud Amount": "7", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": "0", "High Cloud Type": "0", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 1", "Past Weather": "2", "Wind Direction": 140, "Wind Speed": 118, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": -35.6, "Longitude": 13.7, "Time of Observation": "2015-01-13T12:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "30.12", "Characteristics of Pressure Tendency": "8", "Pressure Tendency": " ", "Air Temperature": "66.7", "Wet Bulb Temperature": " ", "Dew Point Temperature": "50.5", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 8", "Wave Height": " 7", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "4", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "5", "Middle Cloud Type": "7", "High Cloud Type": "A", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "1", "Wind Direction": 160, "Wind Speed": 123, "Time of Day": "Afternoon"}, {"Identification": "D5GN6", "Latitude": -35.4, "Longitude": 15.5, "Time of Observation": "2015-01-13T18:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "30.08", "Characteristics of Pressure Tendency": "5", "Pressure Tendency": "0.0", "Air Temperature": "68.4", "Wet Bulb Temperature": " ", "Dew Point Temperature": "48.9", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "6", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " ", "Past Weather": " ", "Wind Direction": 120, "Wind Speed": 118, "Time of Day": "Evening"}, {"Identification": "D5GN6", "Latitude": -35.3, "Longitude": 17.1, "Time of Observation": "2015-01-14T00:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "30.01", "Characteristics of Pressure Tendency": "8", "Pressure Tendency": "0.0", "Air Temperature": "68.0", "Wet Bulb Temperature": " ", "Dew Point Temperature": "57.9", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "8", "Low Cloud Amount": "1", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "2", "Middle Cloud Type": "1", "High Cloud Type": "A", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "2", "Wind Direction": 140, "Wind Speed": 139, "Time of Day": "Night"}, {"Identification": "D5GN6", "Latitude": -35.2, "Longitude": 18.6, "Time of Observation": "2015-01-14T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.98", "Characteristics of Pressure Tendency": "3", "Pressure Tendency": "0.0", "Air Temperature": "69.3", "Wet Bulb Temperature": " ", "Dew Point Temperature": "61.7", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 3", "Wave Height": "14", "Swell Direction": "20", "Swell Period": "12", "Swell Height": " 8", "Total Cloud Amount": "8", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": "0", "High Cloud Type": "0", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "2", "Wind Direction": 100, "Wind Speed": 154, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": -35.2, "Longitude": 20.3, "Time of Observation": "2015-01-14T12:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.91", "Characteristics of Pressure Tendency": "8", "Pressure Tendency": "0.0", "Air Temperature": "80.6", "Wet Bulb Temperature": " ", "Dew Point Temperature": "57.4", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 8", "Wave Height": " 6", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "7", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "2", "Middle Cloud Type": "A", "High Cloud Type": "A", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "2", "Wind Direction": 80, "Wind Speed": 129, "Time of Day": "Afternoon"}, {"Identification": "D5GN6", "Latitude": -35.1, "Longitude": 21.8, "Time of Observation": "2015-01-14T18:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.88", "Characteristics of Pressure Tendency": "3", "Pressure Tendency": "0.0", "Air Temperature": "73.2", "Wet Bulb Temperature": " ", "Dew Point Temperature": "64.8", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 6", "Wave Height": " 6", "Swell Direction": " 9", "Swell Period": " 9", "Swell Height": " 7", "Total Cloud Amount": "3", "Low Cloud Amount": "2", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": "1", "High Cloud Type": "5", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "0", "Wind Direction": 90, "Wind Speed": 154, "Time of Day": "Evening"}, {"Identification": "D5GN6", "Latitude": -34.5, "Longitude": 24.8, "Time of Observation": "2015-01-15T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.75", "Characteristics of Pressure Tendency": "3", "Pressure Tendency": "0.0", "Air Temperature": "73.9", "Wet Bulb Temperature": " ", "Dew Point Temperature": "68.2", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 6", "Wave Height": " 5", "Swell Direction": " 3", "Swell Period": " 8", "Swell Height": " 8", "Total Cloud Amount": "4", "Low Cloud Amount": "1", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "4", "Middle Cloud Type": "1", "High Cloud Type": "8", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 1", "Past Weather": "1", "Wind Direction": 60, "Wind Speed": 139, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": -34.0, "Longitude": 26.3, "Time of Observation": "2015-01-15T12:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.66", "Characteristics of Pressure Tendency": "8", "Pressure Tendency": "0.0", "Air Temperature": "80.6", "Wet Bulb Temperature": " ", "Dew Point Temperature": "70.0", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "2", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "5", "Middle Cloud Type": "A", "High Cloud Type": "4", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 1", "Past Weather": "0", "Wind Direction": 70, "Wind Speed": 139, "Time of Day": "Afternoon"}, {"Identification": "D5GN6", "Latitude": -33.4, "Longitude": 27.5, "Time of Observation": "2015-01-15T18:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.54", "Characteristics of Pressure Tendency": "8", "Pressure Tendency": "0.0", "Air Temperature": "75.6", "Wet Bulb Temperature": " ", "Dew Point Temperature": "70.3", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 8", "Wave Height": " 6", "Swell Direction": " 7", "Swell Period": " 8", "Swell Height": " 7", "Total Cloud Amount": "6", "Low Cloud Amount": "4", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "4", "Middle Cloud Type": "1", "High Cloud Type": "8", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": "92", "Past Weather": "9", "Wind Direction": 60, "Wind Speed": 232, "Time of Day": "Evening"}, {"Identification": "D5GN6", "Latitude": -32.7, "Longitude": 28.5, "Time of Observation": "2015-01-16T00:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.59", "Characteristics of Pressure Tendency": "8", "Pressure Tendency": "0.0", "Air Temperature": "75.2", "Wet Bulb Temperature": " ", "Dew Point Temperature": "68.5", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": " ", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "A", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "0", "Wind Direction": 50, "Wind Speed": 154, "Time of Day": "Night"}, {"Identification": "D5GN6", "Latitude": -31.9, "Longitude": 29.5, "Time of Observation": "2015-01-16T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": " ", "Characteristics of Pressure Tendency": " ", "Pressure Tendency": " ", "Air Temperature": "79.3", "Wet Bulb Temperature": " ", "Dew Point Temperature": " ", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "1", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "9", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " ", "Past Weather": " ", "Wind Direction": 20, "Wind Speed": 87, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": -30.9, "Longitude": 30.4, "Time of Observation": "2015-01-16T12:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.53", "Characteristics of Pressure Tendency": "8", "Pressure Tendency": "0.0", "Air Temperature": "82.4", "Wet Bulb Temperature": " ", "Dew Point Temperature": "73.2", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "1", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "5", "Middle Cloud Type": "A", "High Cloud Type": "A", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "0", "Wind Direction": 50, "Wind Speed": 93, "Time of Day": "Afternoon"}, {"Identification": "D5GN6", "Latitude": -29.9, "Longitude": 31.3, "Time of Observation": "2015-01-17T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.97", "Characteristics of Pressure Tendency": "1", "Pressure Tendency": "0.0", "Air Temperature": "76.1", "Wet Bulb Temperature": " ", "Dew Point Temperature": "57.2", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "4", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " ", "Past Weather": " ", "Wind Direction": 240, "Wind Speed": 180, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": -29.5, "Longitude": 32.7, "Time of Observation": "2015-01-20T12:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "30.06", "Characteristics of Pressure Tendency": "7", "Pressure Tendency": "0.0", "Air Temperature": "75.2", "Wet Bulb Temperature": " ", "Dew Point Temperature": "57.4", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 6", "Wave Height": " 6", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "7", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "5", "Middle Cloud Type": "7", "High Cloud Type": "A", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "2", "Wind Direction": 170, "Wind Speed": 103, "Time of Day": "Afternoon"}, {"Identification": "D5GN6", "Latitude": -28.8, "Longitude": 36.2, "Time of Observation": "2015-01-21T00:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "30.05", "Characteristics of Pressure Tendency": "7", "Pressure Tendency": "0.0", "Air Temperature": "72.3", "Wet Bulb Temperature": " ", "Dew Point Temperature": "56.3", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "1", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "A", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "0", "Wind Direction": 130, "Wind Speed": 67, "Time of Day": "Night"}, {"Identification": "D5GN6", "Latitude": -28.4, "Longitude": 38.1, "Time of Observation": "2015-01-21T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "30.08", "Characteristics of Pressure Tendency": "2", "Pressure Tendency": "0.0", "Air Temperature": "76.1", "Wet Bulb Temperature": " ", "Dew Point Temperature": "56.7", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " 9", "Swell Period": " 8", "Swell Height": " 6", "Total Cloud Amount": "3", "Low Cloud Amount": "2", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "5", "Middle Cloud Type": "7", "High Cloud Type": "0", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "0", "Wind Direction": 160, "Wind Speed": 72, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": -28.0, "Longitude": 39.8, "Time of Observation": "2015-01-21T12:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "30.03", "Characteristics of Pressure Tendency": "8", "Pressure Tendency": "0.0", "Air Temperature": "77.0", "Wet Bulb Temperature": " ", "Dew Point Temperature": "59.0", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "4", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "5", "Middle Cloud Type": "6", "High Cloud Type": "A", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "1", "Wind Direction": 170, "Wind Speed": 77, "Time of Day": "Afternoon"}, {"Identification": "D5GN6", "Latitude": -27.7, "Longitude": 41.4, "Time of Observation": "2015-01-21T18:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "30.06", "Characteristics of Pressure Tendency": "2", "Pressure Tendency": "0.0", "Air Temperature": "75.2", "Wet Bulb Temperature": " ", "Dew Point Temperature": "62.2", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "3", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "A", "Middle Cloud Type": "7", "High Cloud Type": "A", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "0", "Wind Direction": 130, "Wind Speed": 103, "Time of Day": "Evening"}, {"Identification": "D5GN6", "Latitude": -27.4, "Longitude": 42.9, "Time of Observation": "2015-01-22T00:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "30.03", "Characteristics of Pressure Tendency": "7", "Pressure Tendency": "0.0", "Air Temperature": "75.2", "Wet Bulb Temperature": " ", "Dew Point Temperature": "58.5", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "1", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "A", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "0", "Wind Direction": 140, "Wind Speed": 77, "Time of Day": "Night"}, {"Identification": "D5GN6", "Latitude": -27.0, "Longitude": 44.6, "Time of Observation": "2015-01-22T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "30.06", "Characteristics of Pressure Tendency": "1", "Pressure Tendency": "0.0", "Air Temperature": "80.6", "Wet Bulb Temperature": " ", "Dew Point Temperature": "57.9", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 3", "Wave Height": " 2", "Swell Direction": "10", "Swell Period": " 5", "Swell Height": " 6", "Total Cloud Amount": "6", "Low Cloud Amount": "4", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "5", "Middle Cloud Type": "7", "High Cloud Type": "0", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "2", "Wind Direction": 130, "Wind Speed": 103, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": -26.4, "Longitude": 46.0, "Time of Observation": "2015-01-22T13:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "30.00", "Characteristics of Pressure Tendency": "7", "Pressure Tendency": "0.0", "Air Temperature": "78.8", "Wet Bulb Temperature": " ", "Dew Point Temperature": "63.3", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "2", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "A", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": " ", "Wind Direction": 140, "Wind Speed": 113, "Time of Day": "Afternoon"}, {"Identification": "D5GN6", "Latitude": -25.6, "Longitude": 47.8, "Time of Observation": "2015-01-22T18:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "30.01", "Characteristics of Pressure Tendency": "2", "Pressure Tendency": "0.0", "Air Temperature": "77.0", "Wet Bulb Temperature": " ", "Dew Point Temperature": "62.1", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "3", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "A", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "0", "Wind Direction": 120, "Wind Speed": 113, "Time of Day": "Evening"}, {"Identification": "D5GN6", "Latitude": -24.8, "Longitude": 49.5, "Time of Observation": "2015-01-23T00:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.96", "Characteristics of Pressure Tendency": "6", "Pressure Tendency": "0.0", "Air Temperature": "75.2", "Wet Bulb Temperature": " ", "Dew Point Temperature": "61.3", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "5", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "A", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "2", "Wind Direction": 130, "Wind Speed": 113, "Time of Day": "Night"}, {"Identification": "D5GN6", "Latitude": -23.9, "Longitude": 51.2, "Time of Observation": "2015-01-23T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.95", "Characteristics of Pressure Tendency": "0", "Pressure Tendency": "0.0", "Air Temperature": "82.2", "Wet Bulb Temperature": " ", "Dew Point Temperature": "61.7", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 4", "Wave Height": " 1", "Swell Direction": "18", "Swell Period": " 8", "Swell Height": " 6", "Total Cloud Amount": "6", "Low Cloud Amount": "2", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "6", "Middle Cloud Type": "7", "High Cloud Type": "0", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "2", "Wind Direction": 110, "Wind Speed": 123, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": -22.5, "Longitude": 54.2, "Time of Observation": "2015-01-23T18:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.87", "Characteristics of Pressure Tendency": "0", "Pressure Tendency": "0.0", "Air Temperature": "78.8", "Wet Bulb Temperature": " ", "Dew Point Temperature": "68.2", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "4", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "A", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "0", "Wind Direction": 150, "Wind Speed": 159, "Time of Day": "Evening"}, {"Identification": "D5GN6", "Latitude": -21.7, "Longitude": 55.8, "Time of Observation": "2015-01-24T00:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.79", "Characteristics of Pressure Tendency": "6", "Pressure Tendency": "0.0", "Air Temperature": "77.9", "Wet Bulb Temperature": " ", "Dew Point Temperature": "73.4", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "8", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "A", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": "62", "Past Weather": "0", "Wind Direction": 140, "Wind Speed": 165, "Time of Day": "Night"}, {"Identification": "D5GN6", "Latitude": -20.8, "Longitude": 57.4, "Time of Observation": "2015-01-24T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.84", "Characteristics of Pressure Tendency": "0", "Pressure Tendency": "0.0", "Air Temperature": "84.2", "Wet Bulb Temperature": " ", "Dew Point Temperature": "74.1", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 5", "Wave Height": " 2", "Swell Direction": "17", "Swell Period": " 7", "Swell Height": " 6", "Total Cloud Amount": "6", "Low Cloud Amount": "5", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": "7", "High Cloud Type": "1", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": "80", "Past Weather": "1", "Wind Direction": 70, "Wind Speed": 87, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": -20.1, "Longitude": 59.0, "Time of Observation": "2015-01-24T12:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.83", "Characteristics of Pressure Tendency": "7", "Pressure Tendency": "0.0", "Air Temperature": "82.4", "Wet Bulb Temperature": " ", "Dew Point Temperature": "69.4", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": " ", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "A", "Middle Cloud Type": "A", "High Cloud Type": "8", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 1", "Past Weather": "0", "Wind Direction": 90, "Wind Speed": 113, "Time of Day": "Afternoon"}, {"Identification": "D5GN6", "Latitude": -19.3, "Longitude": 60.5, "Time of Observation": "2015-01-24T18:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.88", "Characteristics of Pressure Tendency": "0", "Pressure Tendency": "0.0", "Air Temperature": "81.0", "Wet Bulb Temperature": " ", "Dew Point Temperature": "71.1", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "3", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "A", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "0", "Wind Direction": 90, "Wind Speed": 139, "Time of Day": "Evening"}, {"Identification": "D5GN6", "Latitude": -18.5, "Longitude": 62.0, "Time of Observation": "2015-01-25T00:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.85", "Characteristics of Pressure Tendency": "5", "Pressure Tendency": "0.0", "Air Temperature": "77.5", "Wet Bulb Temperature": " ", "Dew Point Temperature": "67.8", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": "99", "Wave Height": " 5", "Swell Direction": "38", "Swell Period": " ", "Swell Height": " 6", "Total Cloud Amount": "3", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "A", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "0", "Wind Direction": 110, "Wind Speed": 129, "Time of Day": "Night"}, {"Identification": "D5GN6", "Latitude": -17.8, "Longitude": 63.4, "Time of Observation": "2015-01-25T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.88", "Characteristics of Pressure Tendency": "0", "Pressure Tendency": "0.0", "Air Temperature": "84.2", "Wet Bulb Temperature": " ", "Dew Point Temperature": "71.2", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 4", "Wave Height": " 1", "Swell Direction": " 9", "Swell Period": " 6", "Swell Height": " 6", "Total Cloud Amount": "3", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "4", "Middle Cloud Type": "0", "High Cloud Type": "0", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "0", "Wind Direction": 110, "Wind Speed": 139, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": -17.0, "Longitude": 64.9, "Time of Observation": "2015-01-25T12:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.82", "Characteristics of Pressure Tendency": "5", "Pressure Tendency": "0.0", "Air Temperature": "82.4", "Wet Bulb Temperature": " ", "Dew Point Temperature": "70.7", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 5", "Wave Height": " 3", "Swell Direction": " ", "Swell Period": " 8", "Swell Height": " 5", "Total Cloud Amount": "8", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": "0", "High Cloud Type": "0", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "2", "Wind Direction": 150, "Wind Speed": 108, "Time of Day": "Afternoon"}, {"Identification": "D5GN6", "Latitude": -16.2, "Longitude": 66.5, "Time of Observation": "2015-01-25T18:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.87", "Characteristics of Pressure Tendency": "1", "Pressure Tendency": "0.0", "Air Temperature": "78.4", "Wet Bulb Temperature": " ", "Dew Point Temperature": "73.6", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "8", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "A", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": "80", "Past Weather": "2", "Wind Direction": 130, "Wind Speed": 41, "Time of Day": "Evening"}, {"Identification": "D5GN6", "Latitude": -14.7, "Longitude": 69.4, "Time of Observation": "2015-01-26T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.81", "Characteristics of Pressure Tendency": "3", "Pressure Tendency": "0.0", "Air Temperature": "82.8", "Wet Bulb Temperature": " ", "Dew Point Temperature": "68.0", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 6", "Wave Height": " 1", "Swell Direction": "14", "Swell Period": " 6", "Swell Height": " 6", "Total Cloud Amount": "4", "Low Cloud Amount": "2", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": "6", "High Cloud Type": "0", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 1", "Past Weather": "1", "Wind Direction": 20, "Wind Speed": 82, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": -13.2, "Longitude": 72.2, "Time of Observation": "2015-01-26T18:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.83", "Characteristics of Pressure Tendency": "1", "Pressure Tendency": "0.0", "Air Temperature": "81.0", "Wet Bulb Temperature": " ", "Dew Point Temperature": "73.4", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "7", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": "A", "High Cloud Type": "A", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": "80", "Past Weather": "2", "Wind Direction": 300, "Wind Speed": 57, "Time of Day": "Evening"}, {"Identification": "D5GN6", "Latitude": -12.4, "Longitude": 73.7, "Time of Observation": "2015-01-27T00:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.75", "Characteristics of Pressure Tendency": "5", "Pressure Tendency": "0.0", "Air Temperature": "78.1", "Wet Bulb Temperature": " ", "Dew Point Temperature": "70.7", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": "99", "Wave Height": " 6", "Swell Direction": "38", "Swell Period": " ", "Swell Height": " 7", "Total Cloud Amount": "8", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": "A", "High Cloud Type": "A", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": "82", "Past Weather": "2", "Wind Direction": 290, "Wind Speed": 185, "Time of Day": "Night"}, {"Identification": "D5GN6", "Latitude": -11.6, "Longitude": 75.2, "Time of Observation": "2015-01-27T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.82", "Characteristics of Pressure Tendency": "0", "Pressure Tendency": "0.0", "Air Temperature": "70.7", "Wet Bulb Temperature": " ", "Dew Point Temperature": "60.8", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 5", "Wave Height": " 2", "Swell Direction": "28", "Swell Period": " 9", "Swell Height": " 4", "Total Cloud Amount": "8", "Low Cloud Amount": "4", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": "2", "High Cloud Type": "A", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": "90", "Past Weather": "2", "Wind Direction": 320, "Wind Speed": 103, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": -10.8, "Longitude": 76.7, "Time of Observation": "2015-01-27T12:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.76", "Characteristics of Pressure Tendency": "5", "Pressure Tendency": "0.0", "Air Temperature": " ", "Wet Bulb Temperature": " ", "Dew Point Temperature": "73.4", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 5", "Wave Height": " 4", "Swell Direction": "31", "Swell Period": " 8", "Swell Height": " 5", "Total Cloud Amount": "1", "Low Cloud Amount": "6", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": "7", "High Cloud Type": "8", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "2", "Wind Direction": 20, "Wind Speed": 463, "Time of Day": "Afternoon"}, {"Identification": "D5GN6", "Latitude": -8.9, "Longitude": 79.2, "Time of Observation": "2015-01-28T00:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.78", "Characteristics of Pressure Tendency": "3", "Pressure Tendency": "0.0", "Air Temperature": "81.5", "Wet Bulb Temperature": " ", "Dew Point Temperature": "72.0", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 5", "Wave Height": "63", "Swell Direction": "38", "Swell Period": " ", "Swell Height": " 5", "Total Cloud Amount": "7", "Low Cloud Amount": "6", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "5", "Middle Cloud Type": "7", "High Cloud Type": "0", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "2", "Wind Direction": 340, "Wind Speed": 51, "Time of Day": "Night"}, {"Identification": "D5GN6", "Latitude": -7.9, "Longitude": 80.3, "Time of Observation": "2015-01-28T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.84", "Characteristics of Pressure Tendency": "0", "Pressure Tendency": "0.0", "Air Temperature": "82.9", "Wet Bulb Temperature": " ", "Dew Point Temperature": "72.1", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": "26", "Swell Period": "10", "Swell Height": " 3", "Total Cloud Amount": "5", "Low Cloud Amount": "3", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "5", "Middle Cloud Type": "7", "High Cloud Type": "0", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "0", "Wind Direction": 330, "Wind Speed": 31, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": -6.6, "Longitude": 81.6, "Time of Observation": "2015-01-28T12:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.78", "Characteristics of Pressure Tendency": "3", "Pressure Tendency": "0.0", "Air Temperature": "83.3", "Wet Bulb Temperature": " ", "Dew Point Temperature": "68.0", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": "99", "Wave Height": " 1", "Swell Direction": "29", "Swell Period": " 7", "Swell Height": " 3", "Total Cloud Amount": "3", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "4", "Middle Cloud Type": "0", "High Cloud Type": "0", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "0", "Wind Direction": 310, "Wind Speed": 10, "Time of Day": "Afternoon"}, {"Identification": "D5GN6", "Latitude": -5.4, "Longitude": 82.8, "Time of Observation": "2015-01-28T18:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.86", "Characteristics of Pressure Tendency": "0", "Pressure Tendency": "0.0", "Air Temperature": "81.0", "Wet Bulb Temperature": " ", "Dew Point Temperature": "70.2", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "3", "Low Cloud Amount": "1", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "4", "Middle Cloud Type": "A", "High Cloud Type": "A", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "0", "Wind Direction": 270, "Wind Speed": 26, "Time of Day": "Evening"}, {"Identification": "D5GN6", "Latitude": -4.2, "Longitude": 84.0, "Time of Observation": "2015-01-29T00:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.82", "Characteristics of Pressure Tendency": "3", "Pressure Tendency": "0.0", "Air Temperature": "80.4", "Wet Bulb Temperature": " ", "Dew Point Temperature": "72.1", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 0", "Wave Height": " 0", "Swell Direction": " 1", "Swell Period": " 5", "Swell Height": " 1", "Total Cloud Amount": "2", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": "0", "High Cloud Type": "0", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "0", "Wind Direction": 90, "Wind Speed": 10, "Time of Day": "Night"}, {"Identification": "D5GN6", "Latitude": -2.3, "Longitude": 86.0, "Time of Observation": "2015-01-29T12:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.83", "Characteristics of Pressure Tendency": "0", "Pressure Tendency": "0.0", "Air Temperature": "84.0", "Wet Bulb Temperature": " ", "Dew Point Temperature": "73.6", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 5", "Wave Height": " 1", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "2", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": "0", "High Cloud Type": "0", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "0", "Wind Direction": 190, "Wind Speed": 26, "Time of Day": "Afternoon"}, {"Identification": "D5GN6", "Latitude": -0.2, "Longitude": 88.1, "Time of Observation": "2015-01-30T00:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.87", "Characteristics of Pressure Tendency": "3", "Pressure Tendency": "0.0", "Air Temperature": "79.3", "Wet Bulb Temperature": " ", "Dew Point Temperature": "67.8", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": "99", "Wave Height": " 1", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "3", "Low Cloud Amount": "2", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "5", "Middle Cloud Type": "0", "High Cloud Type": "8", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "0", "Wind Direction": 362, "Wind Speed": 10, "Time of Day": "Night"}, {"Identification": "D5GN6", "Latitude": 0.8, "Longitude": 89.2, "Time of Observation": "2015-01-30T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.91", "Characteristics of Pressure Tendency": "0", "Pressure Tendency": "0.0", "Air Temperature": "87.8", "Wet Bulb Temperature": " ", "Dew Point Temperature": "75.9", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "3", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "6", "Middle Cloud Type": "6", "High Cloud Type": "A", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "1", "Wind Direction": 310, "Wind Speed": 36, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": 2.0, "Longitude": 90.4, "Time of Observation": "2015-01-30T12:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.86", "Characteristics of Pressure Tendency": "3", "Pressure Tendency": "0.0", "Air Temperature": "83.1", "Wet Bulb Temperature": " ", "Dew Point Temperature": "73.2", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": "99", "Wave Height": " 1", "Swell Direction": " 5", "Swell Period": " 5", "Swell Height": " 2", "Total Cloud Amount": "4", "Low Cloud Amount": "3", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": "7", "High Cloud Type": "0", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "2", "Wind Direction": 330, "Wind Speed": 36, "Time of Day": "Afternoon"}, {"Identification": "D5GN6", "Latitude": 3.0, "Longitude": 91.5, "Time of Observation": "2015-01-30T18:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.90", "Characteristics of Pressure Tendency": "8", "Pressure Tendency": "0.0", "Air Temperature": "83.3", "Wet Bulb Temperature": " ", "Dew Point Temperature": "76.8", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "6", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "3", "Middle Cloud Type": "A", "High Cloud Type": "A", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": "13", "Past Weather": "2", "Wind Direction": 320, "Wind Speed": 46, "Time of Day": "Evening"}, {"Identification": "D5GN6", "Latitude": 4.2, "Longitude": 92.6, "Time of Observation": "2015-01-31T00:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.85", "Characteristics of Pressure Tendency": "3", "Pressure Tendency": "0.0", "Air Temperature": "80.8", "Wet Bulb Temperature": " ", "Dew Point Temperature": "71.8", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 4", "Wave Height": " 1", "Swell Direction": " 3", "Swell Period": " 6", "Swell Height": " 2", "Total Cloud Amount": "6", "Low Cloud Amount": "4", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "4", "Middle Cloud Type": "3", "High Cloud Type": "4", "Visibility": 98, "Visibility Indicator": " ", "Present Weather": " 3", "Past Weather": "1", "Wind Direction": 360, "Wind Speed": 57, "Time of Day": "Night"}, {"Identification": "D5GN6", "Latitude": 5.2, "Longitude": 93.6, "Time of Observation": "2015-01-31T06:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.87", "Characteristics of Pressure Tendency": "8", "Pressure Tendency": "0.0", "Air Temperature": "86.0", "Wet Bulb Temperature": " ", "Dew Point Temperature": "69.4", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " ", "Wave Height": " ", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "5", "Low Cloud Amount": " ", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "6", "Middle Cloud Type": " ", "High Cloud Type": " ", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "1", "Wind Direction": 40, "Wind Speed": 82, "Time of Day": "Morning"}, {"Identification": "D5GN6", "Latitude": 6.1, "Longitude": 94.6, "Time of Observation": "2015-01-31T12:00:00", "Ice Accretion On Ship": " ", "Thickness of Ice Accretion On Ship": " ", "Rate of Ice Accretion on Ship": " ", "Sea Level Pressure": "29.80", "Characteristics of Pressure Tendency": "2", "Pressure Tendency": "0.0", "Air Temperature": "82.8", "Wet Bulb Temperature": " ", "Dew Point Temperature": "75.2", "Sea Surface Temperature": " ", "Wave Direction": " ", "Wave Period": " 5", "Wave Height": " 1", "Swell Direction": " ", "Swell Period": " ", "Swell Height": " ", "Total Cloud Amount": "3", "Low Cloud Amount": "1", "Low Cloud Type": " ", "Cloud Height Indicator": " ", "Cloud Height": "4", "Middle Cloud Type": "8", "High Cloud Type": "8", "Visibility": 97, "Visibility Indicator": " ", "Present Weather": " 2", "Past Weather": "0", "Wind Direction": 60, "Wind Speed": 87, "Time of Day": "Afternoon"}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+<p>When designing the interactive marine observations visualization, we focused on clarity, interactivity, and effective data conveyance. Choices like faceting by time, color encoding for wind speed, and size encoding for pressure enhance clarity and simplicity, adhering to principles of good graphics. Interactive features like the wind speed slider engage users, inviting exploration. I considered alternatives like line graphs but opted against them to maintain clarity and avoid information overload.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
